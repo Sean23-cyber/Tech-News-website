@@ -215,7 +215,7 @@
         </div>
     </footer>
     
-    <script>
+    <script type="module" src="your-script.js"
         document.addEventListener('DOMContentLoaded', function() {
             const apiKey = import.meta.env.VITE_NEWS_API_KEY;
             const AI_API_URL = `https://newsapi.org/v2/everything?q=ai OR "artificial intelligence" OR "machine learning"&sortBy=publishedAt&pageSize=12&apiKey=${apiKey}`;
