@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechTrends Hub | Latest in Tech, AI & Cybersecurity</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --accent: #e11d48;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f1f5f9;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 0.5rem;
+            color: var(--accent);
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            border-bottom: 2px solid var(--accent);
+            color: white;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 1;
+            color: white;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #c81a42;
+            transform: translateY(-2px);
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+        }
+        
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .news-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .news-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .news-card:hover .news-img img {
+            transform: scale(1.05);
+        }
+        
+        .news-content {
+            padding: 1.5rem;
+        }
+        
+        .news-category {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .news-category.ai {
+            background: #7c3aed;
+        }
+        
+        .news-category.cyber {
+            background: #059669;
+        }
+        
+        .news-category.dev {
+            background: #d97706;
+        }
+        
+        .news-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .news-excerpt {
+            color: #64748b;
+            margin-bottom: 1.2rem;
+        }
+        
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        /* Categories Section */
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .category-card {
+            flex: 1 1 200px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .category-card h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .newsletter h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter p {
+            margin-bottom: 2rem;
+            color: #cbd5e1;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background: #c81a42;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 1rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-col ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            background: #334155;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 5px;
+                margin-bottom: 0.5rem;
+            }
+            
+            .newsletter-form button {
+                border-radius: 5px;
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-microchip"></i>
+                <span>TechTrends Hub</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">AI & Machine Learning</a></li>
+                    <li><a href="#">Programming</a></li>
+                    <li><a href="#">Cybersecurity</a></li>
+                    <li><a href="#">Gadgets</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Stay Ahead in the Tech World</h1>
+            <p>Get the latest updates on technology trends, innovations in AI, programming breakthroughs, and cybersecurity threats. Your one-stop source for all things tech.</p>
+            <a href="#" class="btn">Explore Latest News</a>
+        </div>
+    </section>
+    
+    <main class="container">
+        <section>
+            <h2 class="section-title">Latest Tech News</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1677442135136-760c813a743e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="AI Technology">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-category ai">AI</span>
+                        <h3 class="news-title">GPT-5: What We Know About the Next Generation AI</h3>
+                        <p class="news-excerpt">Exploring the potential capabilities and release timeline of OpenAI's upcoming model that promises even more human-like interactions.</p>
+                        <div class="news-meta">
+                            <span>June 15, 2023</span>
+                            <span>5 min read</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Cybersecurity">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-category cyber">Cybersecurity</span>
+                        <h3 class="news-title">New Zero-Day Exploit Targets Major Cloud Providers</h3>
+                        <p class="news-excerpt">Security researchers uncover critical vulnerability affecting millions of cloud instances. Here's how to protect your systems.</p>
+                        <div class="news-meta">
+                            <span>June 12, 2023</span>
+                            <span>4 min read</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1617791160536-598cf32026fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Programming">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-category dev">Programming</span>
+                        <h3 class="news-title">Rust 2.0: What Developers Need to Know</h3>
+                        <p class="news-excerpt">The upcoming major release brings significant performance improvements and new syntax features that will change how you code.</p>
+                        <div class="news-meta">
+                            <span>June 10, 2023</span>
+                            <span>6 min read</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Gadgets">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-category">Gadgets</span>
+                        <h3 class="news-title">Foldable Phones: The 2023 Showdown</h3>
+                        <p class="news-excerpt">Comparing the latest foldable devices from Samsung, Google, and Huawei to help you choose the right one.</p>
+                        <div class="news-meta">
+                            <span>June 8, 2023</span>
+                            <span>7 min read</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Quantum Computing">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-category">Emerging Tech</span>
+                        <h3 class="news-title">Quantum Breakthrough Could Revolutionize Encryption</h3>
+                        <p class="news-excerpt">Scientists achieve quantum supremacy with new 256-qubit processor, potentially making current encryption methods obsolete.</p>
+                        <div class="news-meta">
+                            <span>June 5, 2023</span>
+                            <span>8 min read</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1624953587687-daf255b6b80a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="VR Technology">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-category">Gadgets</span>
+                        <h3 class="news-title">Apple's Vision Pro: The Future of AR/VR?</h3>
+                        <p class="news-excerpt">Our hands-on review of Apple's ambitious mixed reality headset and what it means for the future of spatial computing.</p>
+                        <div class="news-meta">
+                            <span>June 3, 2023</span>
+                            <span>5 min read</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <section>
+            <h2 class="section-title">Browse by Category</h2>
+            <div class="categories">
+                <div class="category-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI & Machine Learning</h3>
+                    <p>The latest breakthroughs in artificial intelligence and neural networks.</p>
+                </div>
+                
+                <div class="category-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Programming</h3>
+                    <p>Languages, frameworks, and tools shaping the future of development.</p>
+                </div>
+                
+                <div class="category-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Cybersecurity</h3>
+                    <p>Threats, vulnerabilities, and protection strategies for the digital age.</p>
+                </div>
+                
+                <div class="category-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Gadgets</h3>
+                    <p>Reviews and news about the latest tech devices and hardware.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <section class="newsletter">
+        <div class="newsletter-container">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter to receive weekly tech news directly in your inbox.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>TechTrends Hub</h3>
+                <p>Your premier source for the latest in technology, innovation, and digital trends.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#">AI & Machine Learning</a></li>
+                    <li><a href="#">Programming</a></li>
+                    <li><a href="#">Cybersecurity</a></li>
+                    <li><a href="#">Gadgets</a></li>
+                    <li><a href="#">Emerging Tech</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Team</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Advertise</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">GDPR</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 TechTrends Hub. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple JavaScript for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle functionality would go here
+            console.log('TechTrends Hub is ready!');
+            
+            // Newsletter form submission
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input').value;
+                    alert(`Thanks for subscribing with ${email}! You'll receive our next newsletter.`);
+                    this.querySelector('input').value = '';
+                });
+            }
+            
+            // Simulate loading more news articles
+            const loadMoreBtn = document.createElement('button');
+            loadMoreBtn.textContent = 'Load More News';
+            loadMoreBtn.className = 'btn';
+            loadMoreBtn.style.display = 'block';
+            loadMoreBtn.style.margin = '2rem auto';
+            loadMoreBtn.addEventListener('click', function() {
+                alert('In a real implementation, this would load more news articles dynamically!');
+            });
+            
+            const newsGrid = document.querySelector('.news-grid');
+            if (newsGrid) {
+                newsGrid.parentNode.insertBefore(loadMoreBtn, newsGrid.nextSibling);
+            }
+        });
+    </script>
+</body>
+</html>
