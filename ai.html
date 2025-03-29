@@ -1,83 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Same head content as index.html -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI News | TechTrends Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --accent: #e11d48;
+            --ai-color: #7c3aed;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--ai-color);
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .news-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .news-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .news-card:hover .news-img img {
+            transform: scale(1.05);
+        }
+        
+        .news-content {
+            padding: 1.5rem;
+        }
+        
+        .news-category {
+            display: inline-block;
+            background: var(--ai-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .news-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .news-excerpt {
+            color: #64748b;
+            margin-bottom: 1.2rem;
+        }
+        
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        .save-btn {
+            background: var(--ai-color);
+            color: white;
+            border: none;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: background 0.3s ease;
+        }
+        
+        .save-btn:hover {
+            background: #6d28d9;
+        }
+        
+        .save-btn.saved {
+            background: #10b981;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+        
+        .error-message {
+            color: var(--accent);
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Same header as index.html but with AI link as active -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                <span>TechTrends AI News</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="ai.html" class="active">AI</a></li>
+                    <li><a href="programming.html">Programming</a></li>
+                    <li><a href="cybersecurity.html">Cybersecurity</a></li>
+                    <li><a href="gadgets.html">Gadgets</a></li>
+                    <li><a href="saved.html">Saved Articles</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
     
     <main class="container">
         <section>
             <h2 class="section-title">Latest AI News</h2>
             <div class="news-grid" id="ai-news">
-                <!-- Content will be loaded by JavaScript -->
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i> Loading AI news...
+                </div>
             </div>
         </section>
     </main>
     
-    <!-- Same footer as index.html -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>TechTrends AI</h3>
+                <p>Your premier source for artificial intelligence news and breakthroughs.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="ai.html">AI News</a></li>
+                    <li><a href="programming.html">Programming</a></li>
+                    <li><a href="saved.html">Saved Articles</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> Newsletter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 TechTrends Hub. All rights reserved.</p>
+        </div>
+    </footer>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const API_KEY = 'bb7fd234c1ee4e62b144fdb9439ad7ef';
-            const AI_API_URL = `https://newsapi.org/v2/everything?q=ai OR "artificial intelligence" OR "machine learning"&sortBy=publishedAt&apiKey=${API_KEY}`;
+            const AI_API_URL = `https://newsapi.org/v2/everything?q=ai OR "artificial intelligence" OR "machine learning"&sortBy=publishedAt&pageSize=12&apiKey=${API_KEY}`;
+            
+            const newsContainer = document.getElementById('ai-news');
             
             fetch(AI_API_URL)
-                .then(response => response.json())
-                .then(data => {
-                    if(data.status === 'ok') {
-                        displayNews(data.articles, '#ai-news');
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
                     }
+                    return response.json();
+                })
+                .then(data => {
+                    if(data.status === 'ok' && data.articles.length > 0) {
+                        displayNews(data.articles);
+                    } else {
+                        showError('No AI articles found. Please try again later.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching AI news:', error);
+                    showError('Failed to load AI news. Please check your connection.');
                 });
                 
-            function displayNews(articles, containerId) {
-                const container = document.querySelector(containerId);
-                if (!container) return;
+            function displayNews(articles) {
+                newsContainer.innerHTML = '';
                 
-                container.innerHTML = '';
-                
-                articles.slice(0, 6).forEach(article => {
+                articles.forEach(article => {
+                    const isSaved = checkIfSaved(article.url);
+                    
                     const newsCard = document.createElement('article');
                     newsCard.className = 'news-card';
                     newsCard.innerHTML = `
-                        <!-- Same card structure as index.html -->
+                        <div class="news-img">
+                            <img src="${article.urlToImage || 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'}" alt="${article.title}">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-category">AI</span>
+                            <h3 class="news-title">${article.title}</h3>
+                            <p class="news-excerpt">${article.description || 'No description available for this AI article.'}</p>
+                            <div class="news-meta">
+                                <span>${new Date(article.publishedAt).toLocaleDateString()}</span>
+                                <button class="save-btn ${isSaved ? 'saved' : ''}" 
+                                        data-title="${article.title}" 
+                                        data-url="${article.url}" 
+                                        data-image="${article.urlToImage || ''}" 
+                                        data-desc="${article.description || ''}">
+                                    ${isSaved ? '<i class="fas fa-check"></i> Saved' : '<i class="far fa-bookmark"></i> Save'}
+                                </button>
+                            </div>
+                        </div>
                     `;
-                    container.appendChild(newsCard);
+                    
+                    // Open article in new tab when clicked
+                    newsCard.addEventListener('click', (e) => {
+                        if (!e.target.closest('.save-btn')) {
+                            window.open(article.url, '_blank');
+                        }
+                    });
+                    
+                    newsContainer.appendChild(newsCard);
+                });
+                
+                setupSaveButtons();
+            }
+            
+            function showError(message) {
+                newsContainer.innerHTML = `
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-triangle"></i> ${message}
+                    </div>
+                `;
+            }
+            
+            function checkIfSaved(url) {
+                const savedArticles = JSON.parse(localStorage.getItem('savedArticles')) || [];
+                return savedArticles.some(article => article.url === url);
+            }
+            
+            function setupSaveButtons() {
+                document.querySelectorAll('.save-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        
+                        const article = {
+                            title: this.dataset.title,
+                            url: this.dataset.url,
+                            image: this.dataset.image,
+                            description: this.dataset.desc
+                        };
+                        
+                        let savedArticles = JSON.parse(localStorage.getItem('savedArticles')) || [];
+                        
+                        if (this.classList.contains('saved')) {
+                            // Remove from saved
+                            savedArticles = savedArticles.filter(a => a.url !== article.url);
+                            this.classList.remove('saved');
+                            this.innerHTML = '<i class="far fa-bookmark"></i> Save';
+                        } else {
+                            // Add to saved
+                            savedArticles.push(article);
+                            this.classList.add('saved');
+                            this.innerHTML = '<i class="fas fa-check"></i> Saved';
+                        }
+                        
+                        localStorage.setItem('savedArticles', JSON.stringify(savedArticles));
+                    });
                 });
             }
         });
-
-
-        function setupSaveArticleFeature() {
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('save-article')) {
-            e.stopPropagation();
-            const articleCard = e.target.closest('.news-card');
-            const articleData = {
-                title: articleCard.querySelector('.news-title').textContent,
-                url: articleCard.dataset.url,
-                image: articleCard.querySelector('img').src,
-                description: articleCard.querySelector('.news-excerpt').textContent
-            };
-            
-            saveArticle(articleData);
-        }
-    });
-}
-
-function saveArticle(article) {
-    let savedArticles = JSON.parse(localStorage.getItem('savedArticles')) || [];
-    
-    // Check if article already saved
-    if (!savedArticles.some(a => a.url === article.url)) {
-        savedArticles.push(article);
-        localStorage.setItem('savedArticles', JSON.stringify(savedArticles));
-        alert('Article saved!');
-    } else {
-        alert('You already saved this article.');
-    }
-}
     </script>
 </body>
 </html>
