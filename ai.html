@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Same head content as index.html -->
+    <title>AI News | TechTrends Hub</title>
+</head>
+<body>
+    <!-- Same header as index.html but with AI link as active -->
+    
+    <main class="container">
+        <section>
+            <h2 class="section-title">Latest AI News</h2>
+            <div class="news-grid" id="ai-news">
+                <!-- Content will be loaded by JavaScript -->
+            </div>
+        </section>
+    </main>
+    
+    <!-- Same footer as index.html -->
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const API_KEY = 'bb7fd234c1ee4e62b144fdb9439ad7ef';
+            const AI_API_URL = `https://newsapi.org/v2/everything?q=ai OR "artificial intelligence" OR "machine learning"&sortBy=publishedAt&apiKey=${API_KEY}`;
+            
+            fetch(AI_API_URL)
+                .then(response => response.json())
+                .then(data => {
+                    if(data.status === 'ok') {
+                        displayNews(data.articles, '#ai-news');
+                    }
+                });
+                
+            function displayNews(articles, containerId) {
+                const container = document.querySelector(containerId);
+                if (!container) return;
+                
+                container.innerHTML = '';
+                
+                articles.slice(0, 6).forEach(article => {
+                    const newsCard = document.createElement('article');
+                    newsCard.className = 'news-card';
+                    newsCard.innerHTML = `
+                        <!-- Same card structure as index.html -->
+                    `;
+                    container.appendChild(newsCard);
+                });
+            }
+        });
+
+
+        function setupSaveArticleFeature() {
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('save-article')) {
+            e.stopPropagation();
+            const articleCard = e.target.closest('.news-card');
+            const articleData = {
+                title: articleCard.querySelector('.news-title').textContent,
+                url: articleCard.dataset.url,
+                image: articleCard.querySelector('img').src,
+                description: articleCard.querySelector('.news-excerpt').textContent
+            };
+            
+            saveArticle(articleData);
+        }
+    });
+}
+
+function saveArticle(article) {
+    let savedArticles = JSON.parse(localStorage.getItem('savedArticles')) || [];
+    
+    // Check if article already saved
+    if (!savedArticles.some(a => a.url === article.url)) {
+        savedArticles.push(article);
+        localStorage.setItem('savedArticles', JSON.stringify(savedArticles));
+        alert('Article saved!');
+    } else {
+        alert('You already saved this article.');
+    }
+}
+    </script>
+</body>
+</html>
