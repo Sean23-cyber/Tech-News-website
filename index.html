@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechTrends | Latest Technology News & Innovations</title>
+    <title>TechTrends | Latest Technology News</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Global Styles */
@@ -141,34 +141,12 @@
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
-            animation: fadeInUp 0.8s ease;
         }
         
         .hero p {
             font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto 30px;
-            animation: fadeInUp 0.8s ease 0.2s forwards;
-            opacity: 0;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: white;
-            color: #2563eb;
-            padding: 12px 30px;
-            border-radius: 4px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease 0.4s forwards;
-            opacity: 0;
-        }
-        
-        .cta-button:hover {
-            background-color: #f0f4ff;
-            transform: translateY(-2px);
-            text-decoration: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         
         /* Featured Articles */
@@ -299,7 +277,6 @@
         
         .category-content {
             display: none;
-            animation: fadeIn 0.5s ease;
         }
         
         .category-content.active {
@@ -365,85 +342,63 @@
             font-size: 0.8rem;
         }
         
-        /* Newsletter */
-        .newsletter {
-            background-color: #f0f4ff;
-            padding: 50px 0;
-            text-align: center;
+        /* Article Page */
+        .article-page {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 40px;
             margin-bottom: 50px;
         }
         
-        .newsletter h2 {
-            font-size: 1.8rem;
+        .article-header {
+            margin-bottom: 30px;
+        }
+        
+        .article-header h1 {
+            font-size: 2rem;
             margin-bottom: 15px;
+            line-height: 1.3;
         }
         
-        .newsletter p {
-            max-width: 600px;
-            margin: 0 auto 30px;
-            color: #555;
-        }
-        
-        .newsletter-form {
+        .article-meta-large {
             display: flex;
-            max-width: 500px;
-            margin: 0 auto;
+            justify-content: space-between;
+            color: #888;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
         }
         
-        .newsletter-form input {
-            flex: 1;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px 0 0 4px;
-            outline: none;
-            transition: all 0.3s ease;
+        .article-image-large {
+            height: 400px;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 30px;
+            border-radius: 4px;
         }
         
-        .newsletter-form input:focus {
-            border-color: #2563eb;
-            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+        .article-body {
+            line-height: 1.8;
+            font-size: 1.1rem;
         }
         
-        .newsletter-form button {
-            background-color: #2563eb;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-            font-weight: 500;
-            transition: background-color 0.3s ease;
+        .article-body p {
+            margin-bottom: 20px;
         }
         
-        .newsletter-form button:hover {
-            background-color: #1d4ed8;
+        .article-body h2 {
+            font-size: 1.5rem;
+            margin: 30px 0 15px;
+            color: #222;
         }
         
-        /* Trending Topics */
-        .trending-topics {
-            margin-bottom: 50px;
-        }
-        
-        .topics-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .topic {
-            background-color: #f0f4ff;
-            color: #2563eb;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-        
-        .topic:hover {
-            background-color: #2563eb;
-            color: white;
-            text-decoration: none;
-            transform: translateY(-2px);
+        .article-body img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 4px;
         }
         
         /* Footer */
@@ -485,77 +440,12 @@
             text-decoration: none;
         }
         
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            color: white;
-            background-color: #3b82f6;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background-color: #2563eb;
-            text-decoration: none;
-            transform: translateY(-3px);
-        }
-        
         .copyright {
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid #3b82f6;
             color: #d1d5db;
             font-size: 0.9rem;
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        
-        /* Toast Notification */
-        .toast {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 4px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-        
-        .toast.show {
-            transform: translateY(0);
-            opacity: 1;
         }
         
         /* Responsive Design */
@@ -573,7 +463,6 @@
             
             nav.active {
                 display: block;
-                animation: fadeIn 0.3s ease;
             }
             
             nav ul {
@@ -608,18 +497,12 @@
                 grid-template-columns: 1fr;
             }
             
-            .newsletter-form {
-                flex-direction: column;
+            .article-image-large {
+                height: 250px;
             }
             
-            .newsletter-form input {
-                border-radius: 4px;
-                margin-bottom: 10px;
-            }
-            
-            .newsletter-form button {
-                border-radius: 4px;
-                width: 100%;
+            .article-page {
+                padding: 20px;
             }
         }
     </style>
@@ -639,399 +522,496 @@
             
             <nav id="main-nav">
                 <ul>
-                    <li><a href="#" class="active" data-section="home">Home</a></li>
-                    <li><a href="#" data-section="ai">AI & ML</a></li>
-                    <li><a href="#" data-section="programming">Programming</a></li>
-                    <li><a href="#" data-section="gadgets">Gadgets</a></li>
-                    <li><a href="#" data-section="security">Cybersecurity</a></li>
-                    <li><a href="#" data-section="software">Software</a></li>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">AI & ML</a></li>
+                    <li><a href="#">Programming</a></li>
+                    <li><a href="#">Gadgets</a></li>
+                    <li><a href="#">Security</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>Stay Ahead with the Latest in Tech</h1>
-            <p>Your daily dose of technology news, innovations, and analysis from the digital world.</p>
-            <a href="#newsletter" class="cta-button">Subscribe Now</a>
-        </div>
-    </section>
-    
-    <!-- Featured Articles -->
-    <section class="featured-articles">
-        <div class="container">
-            <h2 class="section-title">Featured Stories</h2>
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Check if we're on an article page or homepage -->
+        <div id="homepage-content">
+            <!-- Hero Section -->
+            <section class="hero">
+                <h1>Latest Technology News</h1>
+                <p>Stay informed with the most recent developments in the tech world</p>
+            </section>
             
-            <div class="featured-grid">
-                <article class="featured-article" data-category="ai">
-                    <div class="article-image" style="background-image: url('https://source.unsplash.com/random/600x400/?ai')">
-                        <span class="article-category">AI</span>
-                    </div>
-                    <div class="article-content">
-                        <h3 class="article-title">
-                            <a href="#">New AI Model Breaks Record in Natural Language Processing</a>
-                        </h3>
-                        <p class="article-excerpt">
-                            A new large language model released this week shows unprecedented accuracy in complex reasoning tasks and natural language understanding.
-                        </p>
-                        <div class="article-meta">
-                            <span>March 28, 2025</span>
-                            <span>By James Wilson</span>
-                        </div>
-                    </div>
-                </article>
+            <!-- Featured Articles -->
+            <section class="featured-articles">
+                <h2 class="section-title">Featured Stories</h2>
                 
-                <article class="featured-article" data-category="security">
-                    <div class="article-image" style="background-image: url('https://source.unsplash.com/random/600x400/?cybersecurity')">
-                        <span class="article-category">Cybersecurity</span>
-                    </div>
-                    <div class="article-content">
-                        <h3 class="article-title">
-                            <a href="#">Major Financial Institutions Report New Wave of Sophisticated Attacks</a>
-                        </h3>
-                        <p class="article-excerpt">
-                            Security experts warn of a new type of ransomware targeting banking infrastructure. Here's how companies are responding.
-                        </p>
-                        <div class="article-meta">
-                            <span>March 29, 2025</span>
-                            <span>By Sarah Chen</span>
+                <div class="featured-grid">
+                    <article class="featured-article">
+                        <div class="article-image" style="background-image: url('https://source.unsplash.com/random/600x400/?ai')">
+                            <span class="article-category">AI</span>
                         </div>
-                    </div>
-                </article>
+                        <div class="article-content">
+                            <h3 class="article-title">
+                                <a href="#">New AI Model Breaks Record in Natural Language Processing</a>
+                            </h3>
+                            <p class="article-excerpt">
+                                A new large language model released this week shows unprecedented accuracy in complex reasoning tasks and natural language understanding.
+                            </p>
+                            <div class="article-meta">
+                                <span>March 28, 2025</span>
+                                <span>By James Wilson</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="featured-article">
+                        <div class="article-image" style="background-image: url('https://source.unsplash.com/random/600x400/?cybersecurity')">
+                            <span class="article-category">Security</span>
+                        </div>
+                        <div class="article-content">
+                            <h3 class="article-title">
+                                <a href="#">Major Financial Institutions Report New Wave of Sophisticated Attacks</a>
+                            </h3>
+                            <p class="article-excerpt">
+                                Security experts warn of a new type of ransomware targeting banking infrastructure. Here's how companies are responding.
+                            </p>
+                            <div class="article-meta">
+                                <span>March 29, 2025</span>
+                                <span>By Sarah Chen</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="featured-article">
+                        <div class="article-image" style="background-image: url('https://source.unsplash.com/random/600x400/?programming')">
+                            <span class="article-category">Programming</span>
+                        </div>
+                        <div class="article-content">
+                            <h3 class="article-title">
+                                <a href="#">TypeScript 6.0 Released with Game-Changing Features</a>
+                            </h3>
+                            <p class="article-excerpt">
+                                The latest version of TypeScript introduces pattern matching, improved type inference, and performance optimizations.
+                            </p>
+                            <div class="article-meta">
+                                <span>March 27, 2025</span>
+                                <span>By Alex Johnson</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            
+            <!-- News Categories -->
+            <section class="news-categories">
+                <div class="category-tabs">
+                    <div class="category-tab active">Latest News</div>
+                    <div class="category-tab">AI & Machine Learning</div>
+                    <div class="category-tab">Programming</div>
+                    <div class="category-tab">Gadgets</div>
+                    <div class="category-tab">Security</div>
+                </div>
                 
-                <article class="featured-article" data-category="programming">
-                    <div class="article-image" style="background-image: url('https://source.unsplash.com/random/600x400/?programming')">
-                        <span class="article-category">Programming</span>
-                    </div>
-                    <div class="article-content">
-                        <h3 class="article-title">
-                            <a href="#">TypeScript 6.0 Released with Game-Changing Features</a>
-                        </h3>
-                        <p class="article-excerpt">
-                            The latest version of TypeScript introduces pattern matching, improved type inference, and performance optimizations.
-                        </p>
-                        <div class="article-meta">
-                            <span>March 27, 2025</span>
-                            <span>By Alex Johnson</span>
+                <div class="category-content active">
+                    <div class="news-grid">
+                        <div class="news-card">
+                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?quantum')"></div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="#">Tech Giants Announce Collaboration on Quantum Computing Standards</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    Major tech companies are joining forces to establish industry-wide standards for quantum computing hardware and software interoperability.
+                                </p>
+                                <div class="news-meta">March 30, 2025</div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-card">
+                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?battery')"></div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="#">Startup Unveils Revolutionary Battery Technology</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    A new solid-state battery promises to double the range of electric vehicles while cutting charging time in half.
+                                </p>
+                                <div class="news-meta">March 29, 2025</div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-card">
+                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?regulation')"></div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="#">New EU Digital Services Act Goes Into Effect</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    Tech companies scramble to comply with new regulations aimed at creating a safer digital space with more accountability.
+                                </p>
+                                <div class="news-meta">March 28, 2025</div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-card">
+                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?opensource')"></div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="#">Open Source Project Hits 1 Million Contributors</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    The popular developer framework celebrates a milestone that highlights the power of community-driven software development.
+                                </p>
+                                <div class="news-meta">March 27, 2025</div>
+                            </div>
                         </div>
                     </div>
-                </article>
+                </div>
+                
+                <div class="category-content">
+                    <div class="news-grid">
+                        <div class="news-card">
+                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?ai-content')"></div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="#">AI-Generated Content Now Indistinguishable from Human Work</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    New research shows that most humans can no longer reliably identify AI-created content across various media formats.
+                                </p>
+                                <div class="news-meta">March 30, 2025</div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-card">
+                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?healthcare')"></div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="#">Healthcare AI Breakthrough: Predicting Disease 5 Years Before Symptoms</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    A new machine learning system can detect early biomarkers of several major diseases years before clinical symptoms appear.
+                                </p>
+                                <div class="news-meta">March 28, 2025</div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-card">
+                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?ethics')"></div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="#">AI Ethics Board Proposes New Guidelines for Model Development</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    The international AI Ethics Consortium is recommending stronger safeguards and transparency requirements for AI systems.
+                                </p>
+                                <div class="news-meta">March 26, 2025</div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-card">
+                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?coding')"></div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="#">Generative AI for Code Reaches New Milestone</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    The latest code-generation models can now handle complex software architecture and refactoring tasks with minimal guidance.
+                                </p>
+                                <div class="news-meta">March 25, 2025</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category-content">
+                    <div class="news-grid">
+                        <div class="news-card">
+                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?javascript')"></div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="#">ECMAScript 2025 Specification Finalized</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    The latest JavaScript standard introduces several new features including pattern matching and improved async capabilities.
+                                </p>
+                                <div class="news-meta">March 29, 2025</div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-card">
+                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?python')"></div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="#">Python 3.12 Performance Improvements Benchmarked</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    The latest Python release shows significant performance gains, especially in pattern matching and type checking operations.
+                                </p>
+                                <div class="news-meta">March 27, 2025</div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-card">
+                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?developer')"></div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="#">New Developer Survey Reveals Shifting Language Preferences</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    Annual survey of 50,000 developers shows Rust and Go gaining popularity while some established languages see decline.
+                                </p>
+                                <div class="news-meta">March 24, 2025</div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-card">
+                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?webdev')"></div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="#">WebAssembly 2.0 Brings Major Performance Boost</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    The new version of WebAssembly introduces features that enable near-native performance for complex web applications.
+                                </p>
+                                <div class="news-meta">March 22, 2025</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category-content">
+                    <div class="news-grid">
+                        <div class="news-card">
+                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?smartphone')"></div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="#">Foldable Smartphones Reach Price Parity with Flagship Devices</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    New manufacturing techniques have brought down the cost of foldable displays, making these devices more accessible.
+                                </p>
+                                <div class="news-meta">March 30, 2025</div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-card">
+                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?vr')"></div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="#">Next-Gen VR Headsets Eliminate Motion Sickness</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    Breakthrough in display technology and motion tracking promises to make VR comfortable for extended use.
+                                </p>
+                                <div class="news-meta">March 28, 2025</div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-card">
+                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?processor')"></div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="#">3nm Processors Hit the Market with 40% Efficiency Gains</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    The latest generation of mobile processors delivers significant battery life improvements without sacrificing performance.
+                                </p>
+                                <div class="news-meta">March 26, 2025</div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-card">
+                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?wearable')"></div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="#">Smart Rings Emerge as New Wearable Category</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    Discreet health tracking devices in ring form factor are gaining popularity for sleep and activity monitoring.
+                                </p>
+                                <div class="news-meta">March 25, 2025</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category-content">
+                    <div class="news-grid">
+                        <div class="news-card">
+                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?hacker')"></div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="#">Zero-Day Exploit Targets Popular Password Managers</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    Security researchers discover critical vulnerability affecting millions of users. Patches are being rolled out.
+                                </p>
+                                <div class="news-meta">March 30, 2025</div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-card">
+                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?encryption')"></div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="#">Post-Quantum Cryptography Standards Finalized</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    NIST announces the first set of quantum-resistant cryptographic algorithms to protect against future threats.
+                                </p>
+                                <div class="news-meta">March 28, 2025</div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-card">
+                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?biometrics')"></div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="#">Biometric Authentication Systems Vulnerable to New Attack</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    Researchers demonstrate how advanced deepfakes can bypass facial recognition systems with 90% success rate.
+                                </p>
+                                <div class="news-meta">March 26, 2025</div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-card">
+                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?firewall')"></div>
+                            <div class="news-content">
+                                <h3 class="news-title">
+                                    <a href="#">Enterprise Firewalls Get AI-Powered Threat Detection</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    Next-generation network security solutions use machine learning to identify and block zero-day attacks in real-time.
+                                </p>
+                                <div class="news-meta">March 24, 2025</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Article Page Content (hidden by default) -->
+        <div id="article-content" style="display: none;">
+            <article class="article-page">
+                <div class="article-header">
+                    <h1>New AI Model Breaks Record in Natural Language Processing</h1>
+                    <div class="article-meta-large">
+                        <span>By James Wilson</span>
+                        <span>March 28, 2025</span>
+                    </div>
+                </div>
+                
+                <div class="article-image-large" style="background-image: url('https://source.unsplash.com/random/1200x800/?ai')"></div>
+                
+                <div class="article-body">
+                    <p>A groundbreaking new artificial intelligence model has set unprecedented benchmarks in natural language understanding and generation, according to research published this week by OpenAI. The model, called GPT-5, demonstrates capabilities that significantly surpass previous state-of-the-art systems in complex reasoning tasks.</p>
+                    
+                    <h2>Unprecedented Performance</h2>
+                    
+                    <p>In standardized tests measuring language understanding, GPT-5 achieved scores that exceed human baseline performance by 15-20% across multiple domains including scientific reasoning, legal analysis, and creative writing. The model shows particular strength in handling ambiguous queries and maintaining context over extended conversations.</p>
+                    
+                    <img src="https://source.unsplash.com/random/800x400/?chart" alt="Performance chart">
+                    
+                    <p>"What's remarkable about GPT-5 isn't just its raw performance numbers, but how it achieves them," explains Dr. Sarah Chen, lead researcher on the project. "The model demonstrates an emergent ability to break down complex problems into logical steps, showing reasoning patterns that we previously thought required human cognition."</p>
+                    
+                    <h2>Technical Innovations</h2>
+                    
+                    <p>The architecture behind GPT-5 incorporates several novel approaches that contribute to its performance:</p>
+                    
+                    <ul>
+                        <li>A new sparse attention mechanism that allows the model to process longer documents while maintaining computational efficiency</li>
+                        <li>Multi-task learning across 57 distinct objectives during training</li>
+                        <li>An improved training dataset with enhanced quality filtering</li>
+                        <li>Novel techniques for mitigating hallucination and improving factual accuracy</li>
+                    </ul>
+                    
+                    <p>These technical advances allow the model to perform at levels previously thought to be years away from realization. In controlled tests, human evaluators preferred GPT-5's outputs over those from professional human writers in 78% of cases when assessing technical documentation.</p>
+                    
+                    <h2>Potential Applications</h2>
+                    
+                    <p>The research team highlights several areas where GPT-5 could have immediate impact:</p>
+                    
+                    <ul>
+                        <li>Automated tutoring systems that can adapt explanations to individual learning styles</li>
+                        <li>Legal document analysis and contract review</li>
+                        <li>Scientific literature synthesis and hypothesis generation</li>
+                        <li>More natural and helpful virtual assistants</li>
+                    </ul>
+                    
+                    <p>However, the researchers caution that significant work remains in areas like bias mitigation and safety controls before such powerful models can be widely deployed. "With capabilities of this magnitude come significant responsibilities," notes Dr. Chen. "We're implementing multiple layers of safeguards as we begin limited testing with partner organizations."</p>
+                    
+                    <p>The full technical report and initial API access details are available on OpenAI's research portal, with broader availability expected later this year following additional safety testing.</p>
+                </div>
+            </article>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>TechTrends</h3>
+                    <p>Your trusted source for the latest in technology news, innovations, and analysis from the digital world.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">AI & Machine Learning</a></li>
+                        <li><a href="#">Programming</a></li>
+                        <li><a href="#">Gadgets & Hardware</a></li>
+                        <li><a href="#">Cybersecurity</a></li>
+                        <li><a href="#">Software</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 TechTrends. All rights reserved.</p>
             </div>
         </div>
-    </section>
+    </footer>
     
-    <!-- News Categories -->
-    <section class="news-categories">
-        <div class="container">
-            <div class="category-tabs">
-                <div class="category-tab active" data-category="latest">Latest News</div>
-                <div class="category-tab" data-category="ai">AI & Machine Learning</div>
-                <div class="category-tab" data-category="programming">Programming</div>
-                <div class="category-tab" data-category="gadgets">Gadgets & Hardware</div>
-                <div class="category-tab" data-category="security">Cybersecurity</div>
-            </div>
-            
-            <div class="category-content active" id="latest">
-                <div class="news-grid">
-                    <div class="news-card" data-category="ai">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?quantum')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#">Tech Giants Announce Collaboration on Quantum Computing Standards</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                Major tech companies are joining forces to establish industry-wide standards for quantum computing hardware and software interoperability.
-                            </p>
-                            <div class="news-meta">March 30, 2025</div>
-                        </div>
-                    </div>
-                    
-                    <div class="news-card" data-category="gadgets">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?battery')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#">Startup Unveils Revolutionary Battery Technology</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                A new solid-state battery promises to double the range of electric vehicles while cutting charging time in half.
-                            </p>
-                            <div class="news-meta">March 29, 2025</div>
-                        </div>
-                    </div>
-                    
-                    <div class="news-card" data-category="software">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?regulation')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#">New EU Digital Services Act Goes Into Effect</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                Tech companies scramble to comply with new regulations aimed at creating a safer digital space with more accountability.
-                            </p>
-                            <div class="news-meta">March 28, 2025</div>
-                        </div>
-                    </div>
-                    
-                    <div class="news-card" data-category="programming">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?opensource')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#">Open Source Project Hits 1 Million Contributors</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                The popular developer framework celebrates a milestone that highlights the power of community-driven software development.
-                            </p>
-                            <div class="news-meta">March 27, 2025</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="category-content" id="ai">
-                <div class="news-grid">
-                    <div class="news-card">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?ai-content')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#">AI-Generated Content Now Indistinguishable from Human Work</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                New research shows that most humans can no longer reliably identify AI-created content across various media formats.
-                            </p>
-                            <div class="news-meta">March 30, 2025</div>
-                        </div>
-                    </div>
-                    
-                    <div class="news-card">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?healthcare')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#">Healthcare AI Breakthrough: Predicting Disease 5 Years Before Symptoms</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                A new machine learning system can detect early biomarkers of several major diseases years before clinical symptoms appear.
-                            </p>
-                            <div class="news-meta">March 28, 2025</div>
-                        </div>
-                    </div>
-                    
-                    <div class="news-card">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?ethics')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#">AI Ethics Board Proposes New Guidelines for Model Development</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                The international AI Ethics Consortium is recommending stronger safeguards and transparency requirements for AI systems.
-                            </p>
-                            <div class="news-meta">March 26, 2025</div>
-                        </div>
-                    </div>
-                    
-                    <div class="news-card">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?coding')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#">Generative AI for Code Reaches New Milestone</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                The latest code-generation models can now handle complex software architecture and refactoring tasks with minimal guidance.
-                            </p>
-                            <div class="news-meta">March 25, 2025</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="category-content" id="programming">
-                <div class="news-grid">
-                    <div class="news-card">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?javascript')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#">ECMAScript 2025 Specification Finalized</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                The latest JavaScript standard introduces several new features including pattern matching and improved async capabilities.
-                            </p>
-                            <div class="news-meta">March 29, 2025</div>
-                        </div>
-                    </div>
-                    
-                    <div class="news-card">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?python')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#">Python 3.12 Performance Improvements Benchmarked</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                The latest Python release shows significant performance gains, especially in pattern matching and type checking operations.
-                            </p>
-                            <div class="news-meta">March 27, 2025</div>
-                        </div>
-                    </div>
-                    
-                    <div class="news-card">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?developer')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#">New Developer Survey Reveals Shifting Language Preferences</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                Annual survey of 50,000 developers shows Rust and Go gaining popularity while some established languages see decline.
-                            </p>
-                            <div class="news-meta">March 24, 2025</div>
-                        </div>
-                    </div>
-                    
-                    <div class="news-card">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?webdev')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#">WebAssembly 2.0 Brings Major Performance Boost</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                The new version of WebAssembly introduces features that enable near-native performance for complex web applications.
-                            </p>
-                            <div class="news-meta">March 22, 2025</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="category-content" id="gadgets">
-                <div class="news-grid">
-                    <div class="news-card">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?smartphone')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#">Foldable Smartphones Reach Price Parity with Flagship Devices</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                New manufacturing techniques have brought down the cost of foldable displays, making these devices more accessible.
-                            </p>
-                            <div class="news-meta">March 30, 2025</div>
-                        </div>
-                    </div>
-                    
-                    <div class="news-card">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?vr')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#">Next-Gen VR Headsets Eliminate Motion Sickness</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                Breakthrough in display technology and motion tracking promises to make VR comfortable for extended use.
-                            </p>
-                            <div class="news-meta">March 28, 2025</div>
-                        </div>
-                    </div>
-                    
-                    <div class="news-card">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?processor')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#">3nm Processors Hit the Market with 40% Efficiency Gains</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                The latest generation of mobile processors delivers significant battery life improvements without sacrificing performance.
-                            </p>
-                            <div class="news-meta">March 26, 2025</div>
-                        </div>
-                    </div>
-                    
-                    <div class="news-card">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?wearable')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#">Smart Rings Emerge as New Wearable Category</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                Discreet health tracking devices in ring form factor are gaining popularity for sleep and activity monitoring.
-                            </p>
-                            <div class="news-meta">March 25, 2025</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="category-content" id="security">
-                <div class="news-grid">
-                    <div class="news-card">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?hacker')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#">Zero-Day Exploit Targets Popular Password Managers</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                Security researchers discover critical vulnerability affecting millions of users. Patches are being rolled out.
-                            </p>
-                            <div class="news-meta">March 30, 2025</div>
-                        </div>
-                    </div>
-                    
-                    <div class="news-card">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?encryption')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#">Post-Quantum Cryptography Standards Finalized</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                NIST announces the first set of quantum-resistant cryptographic algorithms to protect against future threats.
-                            </p>
-                            <div class="news-meta">March 28, 2025</div>
-                        </div>
-                    </div>
-                    
-                    <div class="news-card">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?biometrics')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#">Biometric Authentication Systems Vulnerable to New Attack</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                Researchers demonstrate how advanced deepfakes can bypass facial recognition systems with 90% success rate.
-                            </p>
-                            <div class="news-meta">March 26, 2025</div>
-                        </div>
-                    </div>
-                    
-                    <div class="news-card">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?firewall')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#">Enterprise Firewalls Get AI-Powered Threat Detection</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                Next-generation network security solutions use machine learning to identify and block zero-day attacks in real-time.
-                            </p>
-                            <div class="news-meta">March 24, 2025</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Newsletter -->
-    <section class="newsletter" id="newsletter">
-        <div class="container">
-            <h2>Stay Updated with TechTrends</h2>
-            <p>Subscribe to our newsletter and receive the latest tech news, trends, and insights directly in your inbox.</p>
-            <form class="newsletter-form" id="newsletter-form">
-                <input type="email" id="newsletter-email" placeholder="Enter your email address" required>
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
-    </section>
-    
-    <!-- Trending Topics -->
-    <section class="trending-topics">
-        <div class="container">
-            <h2 class="section-title">Trending Topics</h2>
-            <div class="topics-container">
-                <a href="#" class="topic">#ArtificialIntelligence</a>
-                <a href="#" class="topic">#Cybersecurity</a>
-                <a href="#" class="topic">
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mainNav = document.getElementById('main-nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+        
+        // Category tabs functionality
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        const categoryContents = document.querySelectorAll('.category-content');
+        
+        categoryTabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                categoryContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active');
+                categoryContents[index].classList.add('active');
+            });
+        });
+        
+        // Article page navigation simulation
+        const
