@@ -128,327 +128,8 @@
         .mobile-menu-btn:hover {
             transform: scale(1.1);
         }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(to right, #2563eb, #3b82f6);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-        
-        /* Featured Articles */
-        .featured-articles {
-            margin-bottom: 50px;
-        }
-        
-        .section-title {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background-color: #2563eb;
-        }
-        
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .featured-article {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .featured-article:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .article-image {
-            height: 200px;
-            background-color: #ddd;
-            position: relative;
-            overflow: hidden;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .article-category {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background-color: #2563eb;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        
-        .article-content {
-            padding: 20px;
-        }
-        
-        .article-title {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            transition: color 0.3s ease;
-        }
-        
-        .article-title a:hover {
-            color: #1d4ed8;
-            text-decoration: underline;
-        }
-        
-        .article-excerpt {
-            color: #666;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-        }
-        
-        .article-meta {
-            display: flex;
-            justify-content: space-between;
-            color: #888;
-            font-size: 0.8rem;
-        }
-        
-        /* News Categories */
-        .news-categories {
-            margin-bottom: 50px;
-        }
-        
-        .category-tabs {
-            display: flex;
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 30px;
-            overflow-x: auto;
-            scrollbar-width: none;
-        }
-        
-        .category-tabs::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .category-tab {
-            padding: 10px 20px;
-            cursor: pointer;
-            font-weight: 500;
-            color: #555;
-            white-space: nowrap;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .category-tab:hover {
-            color: #2563eb;
-        }
-        
-        .category-tab.active {
-            color: #2563eb;
-            border-bottom: 3px solid #2563eb;
-        }
-        
-        .category-content {
-            display: none;
-        }
-        
-        .category-content.active {
-            display: block;
-        }
-        
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .news-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .news-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .news-image {
-            height: 160px;
-            background-color: #eee;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .news-content {
-            padding: 15px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .news-title {
-            font-size: 1rem;
-            margin-bottom: 10px;
-            transition: color 0.3s ease;
-        }
-        
-        .news-title a:hover {
-            color: #1d4ed8;
-            text-decoration: underline;
-        }
-        
-        .news-excerpt {
-            color: #666;
-            font-size: 0.85rem;
-            margin-bottom: 10px;
-            flex: 1;
-        }
-        
-        .news-meta {
-            color: #888;
-            font-size: 0.8rem;
-        }
-        
-        /* Article Page */
-        .article-page {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            margin-bottom: 50px;
-        }
-        
-        .article-header {
-            margin-bottom: 30px;
-        }
-        
-        .article-header h1 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            line-height: 1.3;
-        }
-        
-        .article-meta-large {
-            display: flex;
-            justify-content: space-between;
-            color: #888;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .article-image-large {
-            height: 400px;
-            background-color: #eee;
-            background-size: cover;
-            background-position: center;
-            margin-bottom: 30px;
-            border-radius: 4px;
-        }
-        
-        .article-body {
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-        
-        .article-body p {
-            margin-bottom: 20px;
-        }
-        
-        .article-body h2 {
-            font-size: 1.5rem;
-            margin: 30px 0 15px;
-            color: #222;
-        }
-        
-        .article-body img {
-            max-width: 100%;
-            height: auto;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: #1e3a8a;
-            color: white;
-            padding: 60px 0 20px;
-        }
-        
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #3b82f6;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: #d1d5db;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #3b82f6;
-            color: #d1d5db;
-            font-size: 0.9rem;
-        }
-        
-        /* Responsive Design */
+
+        /* Responsive Design - Header */
         @media (max-width: 768px) {
             .header-container {
                 flex-wrap: wrap;
@@ -484,26 +165,6 @@
             .search-bar input {
                 width: 100%;
             }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .featured-grid, .news-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .article-image-large {
-                height: 250px;
-            }
-            
-            .article-page {
-                padding: 20px;
-            }
         }
     </style>
 </head>
@@ -515,10 +176,10 @@
             
             <div class="search-bar">
                 <input type="text" id="search-input" placeholder="Search news...">
-                <button id="search-button">Search</button>
+                <button id="search-button"><i class="fas fa-search"></i></button>
             </div>
             
-            <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">☰</button>
             
             <nav id="main-nav">
                 <ul>
@@ -531,454 +192,586 @@
             </nav>
         </div>
     </header>
-    
-    <!-- Main Content -->
-    <main class="container">
-        <!-- Check if we're on an article page or homepage -->
-        <div id="homepage-content">
-            <!-- Hero Section -->
-            <section class="hero">
-                <h1>Latest Technology News</h1>
-                <p>Stay informed with the most recent developments in the tech world</p>
-            </section>
-            
-            <!-- Featured Articles -->
-            <section class="featured-articles">
-                <h2 class="section-title">Featured Stories</h2>
-                
-                <div class="featured-grid">
-                    <article class="featured-article">
-                        <div class="article-image" style="background-image: url('https://source.unsplash.com/random/600x400/?ai')">
-                            <span class="article-category">AI</span>
-                        </div>
-                        <div class="article-content">
-                            <h3 class="article-title">
-                                <a href="#">New AI Model Breaks Record in Natural Language Processing</a>
-                            </h3>
-                            <p class="article-excerpt">
-                                A new large language model released this week shows unprecedented accuracy in complex reasoning tasks and natural language understanding.
-                            </p>
-                            <div class="article-meta">
-                                <span>March 28, 2025</span>
-                                <span>By James Wilson</span>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="featured-article">
-                        <div class="article-image" style="background-image: url('https://source.unsplash.com/random/600x400/?cybersecurity')">
-                            <span class="article-category">Security</span>
-                        </div>
-                        <div class="article-content">
-                            <h3 class="article-title">
-                                <a href="#">Major Financial Institutions Report New Wave of Sophisticated Attacks</a>
-                            </h3>
-                            <p class="article-excerpt">
-                                Security experts warn of a new type of ransomware targeting banking infrastructure. Here's how companies are responding.
-                            </p>
-                            <div class="article-meta">
-                                <span>March 29, 2025</span>
-                                <span>By Sarah Chen</span>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="featured-article">
-                        <div class="article-image" style="background-image: url('https://source.unsplash.com/random/600x400/?programming')">
-                            <span class="article-category">Programming</span>
-                        </div>
-                        <div class="article-content">
-                            <h3 class="article-title">
-                                <a href="#">TypeScript 6.0 Released with Game-Changing Features</a>
-                            </h3>
-                            <p class="article-excerpt">
-                                The latest version of TypeScript introduces pattern matching, improved type inference, and performance optimizations.
-                            </p>
-                            <div class="article-meta">
-                                <span>March 27, 2025</span>
-                                <span>By Alex Johnson</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </section>
-            
-            <!-- News Categories -->
-            <section class="news-categories">
-                <div class="category-tabs">
-                    <div class="category-tab active">Latest News</div>
-                    <div class="category-tab">AI & Machine Learning</div>
-                    <div class="category-tab">Programming</div>
-                    <div class="category-tab">Gadgets</div>
-                    <div class="category-tab">Security</div>
-                </div>
-                
-                <div class="category-content active">
-                    <div class="news-grid">
-                        <div class="news-card">
-                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?quantum')"></div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="#">Tech Giants Announce Collaboration on Quantum Computing Standards</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    Major tech companies are joining forces to establish industry-wide standards for quantum computing hardware and software interoperability.
-                                </p>
-                                <div class="news-meta">March 30, 2025</div>
-                            </div>
-                        </div>
-                        
-                        <div class="news-card">
-                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?battery')"></div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="#">Startup Unveils Revolutionary Battery Technology</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    A new solid-state battery promises to double the range of electric vehicles while cutting charging time in half.
-                                </p>
-                                <div class="news-meta">March 29, 2025</div>
-                            </div>
-                        </div>
-                        
-                        <div class="news-card">
-                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?regulation')"></div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="#">New EU Digital Services Act Goes Into Effect</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    Tech companies scramble to comply with new regulations aimed at creating a safer digital space with more accountability.
-                                </p>
-                                <div class="news-meta">March 28, 2025</div>
-                            </div>
-                        </div>
-                        
-                        <div class="news-card">
-                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?opensource')"></div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="#">Open Source Project Hits 1 Million Contributors</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    The popular developer framework celebrates a milestone that highlights the power of community-driven software development.
-                                </p>
-                                <div class="news-meta">March 27, 2025</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="category-content">
-                    <div class="news-grid">
-                        <div class="news-card">
-                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?ai-content')"></div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="#">AI-Generated Content Now Indistinguishable from Human Work</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    New research shows that most humans can no longer reliably identify AI-created content across various media formats.
-                                </p>
-                                <div class="news-meta">March 30, 2025</div>
-                            </div>
-                        </div>
-                        
-                        <div class="news-card">
-                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?healthcare')"></div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="#">Healthcare AI Breakthrough: Predicting Disease 5 Years Before Symptoms</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    A new machine learning system can detect early biomarkers of several major diseases years before clinical symptoms appear.
-                                </p>
-                                <div class="news-meta">March 28, 2025</div>
-                            </div>
-                        </div>
-                        
-                        <div class="news-card">
-                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?ethics')"></div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="#">AI Ethics Board Proposes New Guidelines for Model Development</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    The international AI Ethics Consortium is recommending stronger safeguards and transparency requirements for AI systems.
-                                </p>
-                                <div class="news-meta">March 26, 2025</div>
-                            </div>
-                        </div>
-                        
-                        <div class="news-card">
-                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?coding')"></div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="#">Generative AI for Code Reaches New Milestone</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    The latest code-generation models can now handle complex software architecture and refactoring tasks with minimal guidance.
-                                </p>
-                                <div class="news-meta">March 25, 2025</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="category-content">
-                    <div class="news-grid">
-                        <div class="news-card">
-                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?javascript')"></div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="#">ECMAScript 2025 Specification Finalized</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    The latest JavaScript standard introduces several new features including pattern matching and improved async capabilities.
-                                </p>
-                                <div class="news-meta">March 29, 2025</div>
-                            </div>
-                        </div>
-                        
-                        <div class="news-card">
-                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?python')"></div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="#">Python 3.12 Performance Improvements Benchmarked</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    The latest Python release shows significant performance gains, especially in pattern matching and type checking operations.
-                                </p>
-                                <div class="news-meta">March 27, 2025</div>
-                            </div>
-                        </div>
-                        
-                        <div class="news-card">
-                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?developer')"></div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="#">New Developer Survey Reveals Shifting Language Preferences</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    Annual survey of 50,000 developers shows Rust and Go gaining popularity while some established languages see decline.
-                                </p>
-                                <div class="news-meta">March 24, 2025</div>
-                            </div>
-                        </div>
-                        
-                        <div class="news-card">
-                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?webdev')"></div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="#">WebAssembly 2.0 Brings Major Performance Boost</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    The new version of WebAssembly introduces features that enable near-native performance for complex web applications.
-                                </p>
-                                <div class="news-meta">March 22, 2025</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="category-content">
-                    <div class="news-grid">
-                        <div class="news-card">
-                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?smartphone')"></div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="#">Foldable Smartphones Reach Price Parity with Flagship Devices</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    New manufacturing techniques have brought down the cost of foldable displays, making these devices more accessible.
-                                </p>
-                                <div class="news-meta">March 30, 2025</div>
-                            </div>
-                        </div>
-                        
-                        <div class="news-card">
-                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?vr')"></div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="#">Next-Gen VR Headsets Eliminate Motion Sickness</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    Breakthrough in display technology and motion tracking promises to make VR comfortable for extended use.
-                                </p>
-                                <div class="news-meta">March 28, 2025</div>
-                            </div>
-                        </div>
-                        
-                        <div class="news-card">
-                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?processor')"></div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="#">3nm Processors Hit the Market with 40% Efficiency Gains</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    The latest generation of mobile processors delivers significant battery life improvements without sacrificing performance.
-                                </p>
-                                <div class="news-meta">March 26, 2025</div>
-                            </div>
-                        </div>
-                        
-                        <div class="news-card">
-                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?wearable')"></div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="#">Smart Rings Emerge as New Wearable Category</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    Discreet health tracking devices in ring form factor are gaining popularity for sleep and activity monitoring.
-                                </p>
-                                <div class="news-meta">March 25, 2025</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="category-content">
-                    <div class="news-grid">
-                        <div class="news-card">
-                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?hacker')"></div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="#">Zero-Day Exploit Targets Popular Password Managers</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    Security researchers discover critical vulnerability affecting millions of users. Patches are being rolled out.
-                                </p>
-                                <div class="news-meta">March 30, 2025</div>
-                            </div>
-                        </div>
-                        
-                        <div class="news-card">
-                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?encryption')"></div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="#">Post-Quantum Cryptography Standards Finalized</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    NIST announces the first set of quantum-resistant cryptographic algorithms to protect against future threats.
-                                </p>
-                                <div class="news-meta">March 28, 2025</div>
-                            </div>
-                        </div>
-                        
-                        <div class="news-card">
-                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?biometrics')"></div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="#">Biometric Authentication Systems Vulnerable to New Attack</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    Researchers demonstrate how advanced deepfakes can bypass facial recognition systems with 90% success rate.
-                                </p>
-                                <div class="news-meta">March 26, 2025</div>
-                            </div>
-                        </div>
-                        
-                        <div class="news-card">
-                            <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?firewall')"></div>
-                            <div class="news-content">
-                                <h3 class="news-title">
-                                    <a href="#">Enterprise Firewalls Get AI-Powered Threat Detection</a>
-                                </h3>
-                                <p class="news-excerpt">
-                                    Next-generation network security solutions use machine learning to identify and block zero-day attacks in real-time.
-                                </p>
-                                <div class="news-meta">March 24, 2025</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
+
+        <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Latest Technology News</h1>
+            <p>Stay informed with the most recent developments in the tech world</p>
+            <a href="#featured" class="hero-button">Explore Featured Stories</a>
         </div>
+    </section>
+
+    <!-- Featured Articles -->
+    <section class="featured-articles" id="featured">
+        <div class="container">
+            <h2 class="section-title">Featured Stories</h2>
+            
+            <div class="featured-grid">
+                <article class="featured-article">
+                    <div class="article-image" style="background-image: url('https://source.unsplash.com/random/600x400/?ai')">
+                        <span class="article-category">AI</span>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">
+                            <a href="#" class="article-link">New AI Model Breaks Record in Natural Language Processing</a>
+                        </h3>
+                        <p class="article-excerpt">
+                            A new large language model released this week shows unprecedented accuracy in complex reasoning tasks and natural language understanding.
+                        </p>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar-alt"></i> March 28, 2025</span>
+                            <span><i class="far fa-user"></i> James Wilson</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="featured-article">
+                    <div class="article-image" style="background-image: url('https://source.unsplash.com/random/600x400/?cybersecurity')">
+                        <span class="article-category">Security</span>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">
+                            <a href="#" class="article-link">Major Financial Institutions Report New Wave of Sophisticated Attacks</a>
+                        </h3>
+                        <p class="article-excerpt">
+                            Security experts warn of a new type of ransomware targeting banking infrastructure. Here's how companies are responding.
+                        </p>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar-alt"></i> March 29, 2025</span>
+                            <span><i class="far fa-user"></i> Sarah Chen</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="featured-article">
+                    <div class="article-image" style="background-image: url('https://source.unsplash.com/random/600x400/?programming')">
+                        <span class="article-category">Programming</span>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">
+                            <a href="#" class="article-link">TypeScript 6.0 Released with Game-Changing Features</a>
+                        </h3>
+                        <p class="article-excerpt">
+                            The latest version of TypeScript introduces pattern matching, improved type inference, and performance optimizations.
+                        </p>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar-alt"></i> March 27, 2025</span>
+                            <span><i class="far fa-user"></i> Alex Johnson</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
         
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://source.unsplash.com/random/1600x900/?technology') no-repeat center center;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .hero-button {
+            display: inline-block;
+            background-color: white;
+            color: #2563eb;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            text-decoration: none;
+        }
+        
+        /* Featured Articles */
+        .featured-articles {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: #2563eb;
+            border-radius: 2px;
+        }
+        
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .featured-article {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .featured-article:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .article-image {
+            height: 220px;
+            background-color: #ddd;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .article-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: #2563eb;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .article-content {
+            padding: 25px;
+        }
+        
+        .article-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .article-link {
+            color: #222;
+            transition: color 0.3s ease;
+        }
+        
+        .article-link:hover {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        
+        .article-excerpt {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 0.85rem;
+        }
+        
+        .article-meta i {
+            margin-right: 5px;
+        }
+        
+        /* Responsive Design - Hero & Featured */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                padding: 0 20px;
+            }
+            
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+
+        <!-- News Categories -->
+    <section class="news-categories">
+        <div class="container">
+            <div class="category-tabs">
+                <div class="category-tab active" data-category="latest">Latest News</div>
+                <div class="category-tab" data-category="ai">AI & Machine Learning</div>
+                <div class="category-tab" data-category="programming">Programming</div>
+                <div class="category-tab" data-category="gadgets">Gadgets</div>
+                <div class="category-tab" data-category="security">Security</div>
+            </div>
+            
+            <!-- Latest News Content -->
+            <div class="category-content active" id="latest">
+                <div class="news-grid">
+                    <div class="news-card">
+                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?quantum')"></div>
+                        <div class="news-content">
+                            <h3 class="news-title">
+                                <a href="#" class="news-link">Tech Giants Announce Collaboration on Quantum Computing Standards</a>
+                            </h3>
+                            <p class="news-excerpt">
+                                Major tech companies are joining forces to establish industry-wide standards for quantum computing hardware and software interoperability.
+                            </p>
+                            <div class="news-meta">
+                                <span><i class="far fa-calendar-alt"></i> March 30, 2025</span>
+                                <span><i class="far fa-clock"></i> 5 min read</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional news cards for latest news... -->
+                </div>
+                <div class="view-all-container">
+                    <a href="#" class="view-all-button">View All Latest News <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- AI & Machine Learning Content -->
+            <div class="category-content" id="ai">
+                <div class="news-grid">
+                    <div class="news-card">
+                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?ai-content')"></div>
+                        <div class="news-content">
+                            <h3 class="news-title">
+                                <a href="#" class="news-link">AI-Generated Content Now Indistinguishable from Human Work</a>
+                            </h3>
+                            <p class="news-excerpt">
+                                New research shows that most humans can no longer reliably identify AI-created content across various media formats.
+                            </p>
+                            <div class="news-meta">
+                                <span><i class="far fa-calendar-alt"></i> March 30, 2025</span>
+                                <span><i class="far fa-clock"></i> 4 min read</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional news cards for AI... -->
+                </div>
+                <div class="view-all-container">
+                    <a href="#" class="view-all-button">View All AI News <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Additional category content sections... -->
+        </div>
+    </section>
+
+    <style>
+        /* News Categories */
+        .news-categories {
+            margin-bottom: 80px;
+        }
+        
+        .category-tabs {
+            display: flex;
+            border-bottom: 2px solid #e5e7eb;
+            margin-bottom: 30px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            gap: 5px;
+        }
+        
+        .category-tabs::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .category-tab {
+            padding: 12px 25px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #6b7280;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            position: relative;
+            border-radius: 6px 6px 0 0;
+        }
+        
+        .category-tab:hover {
+            color: #2563eb;
+            background-color: #f0f4ff;
+        }
+        
+        .category-tab.active {
+            color: #2563eb;
+            background-color: #f0f4ff;
+            border-bottom: 3px solid #2563eb;
+        }
+        
+        .category-content {
+            display: none;
+        }
+        
+        .category-content.active {
+            display: block;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .news-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .news-image {
+            height: 180px;
+            background-color: #eee;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .news-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .news-title {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        
+        .news-link {
+            color: #222;
+            transition: color 0.3s ease;
+        }
+        
+        .news-link:hover {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        
+        .news-excerpt {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            flex: 1;
+            line-height: 1.6;
+        }
+        
+        .news-meta {
+            color: #888;
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .news-meta i {
+            margin-right: 5px;
+        }
+        
+        .view-all-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .view-all-button {
+            display: inline-block;
+            color: #2563eb;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .view-all-button:hover {
+            background-color: #f0f4ff;
+            text-decoration: none;
+        }
+        
+        .view-all-button i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .view-all-button:hover i {
+            transform: translateX(3px);
+        }
+        
+        /* Responsive Design - News Categories */
+        @media (max-width: 768px) {
+            .category-tabs {
+                gap: 0;
+            }
+            
+            .category-tab {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
         <!-- Article Page Content (hidden by default) -->
-        <div id="article-content" style="display: none;">
-            <article class="article-page">
+    <div id="article-content" style="display: none;">
+        <article class="article-page">
+            <div class="container">
                 <div class="article-header">
                     <h1>New AI Model Breaks Record in Natural Language Processing</h1>
                     <div class="article-meta-large">
-                        <span>By James Wilson</span>
-                        <span>March 28, 2025</span>
+                        <span><i class="far fa-user"></i> By James Wilson</span>
+                        <span><i class="far fa-calendar-alt"></i> March 28, 2025</span>
+                        <span><i class="far fa-clock"></i> 8 min read</span>
+                        <span><i class="far fa-eye"></i> 12.4K views</span>
                     </div>
                 </div>
                 
-                <div class="article-image-large" style="background-image: url('https://source.unsplash.com/random/1200x800/?ai')"></div>
+                <div class="article-image-large" style="background-image: url('https://source.unsplash.com/random/1200x800/?ai')">
+                    <div class="image-caption">GPT-5 architecture diagram (Source: OpenAI Research)</div>
+                </div>
                 
                 <div class="article-body">
-                    <p>A groundbreaking new artificial intelligence model has set unprecedented benchmarks in natural language understanding and generation, according to research published this week by OpenAI. The model, called GPT-5, demonstrates capabilities that significantly surpass previous state-of-the-art systems in complex reasoning tasks.</p>
-                    
-                    <h2>Unprecedented Performance</h2>
-                    
-                    <p>In standardized tests measuring language understanding, GPT-5 achieved scores that exceed human baseline performance by 15-20% across multiple domains including scientific reasoning, legal analysis, and creative writing. The model shows particular strength in handling ambiguous queries and maintaining context over extended conversations.</p>
-                    
-                    <img src="https://source.unsplash.com/random/800x400/?chart" alt="Performance chart">
-                    
-                    <p>"What's remarkable about GPT-5 isn't just its raw performance numbers, but how it achieves them," explains Dr. Sarah Chen, lead researcher on the project. "The model demonstrates an emergent ability to break down complex problems into logical steps, showing reasoning patterns that we previously thought required human cognition."</p>
-                    
-                    <h2>Technical Innovations</h2>
-                    
-                    <p>The architecture behind GPT-5 incorporates several novel approaches that contribute to its performance:</p>
-                    
-                    <ul>
-                        <li>A new sparse attention mechanism that allows the model to process longer documents while maintaining computational efficiency</li>
-                        <li>Multi-task learning across 57 distinct objectives during training</li>
-                        <li>An improved training dataset with enhanced quality filtering</li>
-                        <li>Novel techniques for mitigating hallucination and improving factual accuracy</li>
-                    </ul>
-                    
-                    <p>These technical advances allow the model to perform at levels previously thought to be years away from realization. In controlled tests, human evaluators preferred GPT-5's outputs over those from professional human writers in 78% of cases when assessing technical documentation.</p>
-                    
-                    <h2>Potential Applications</h2>
-                    
-                    <p>The research team highlights several areas where GPT-5 could have immediate impact:</p>
-                    
-                    <ul>
-                        <li>Automated tutoring systems that can adapt explanations to individual learning styles</li>
-                        <li>Legal document analysis and contract review</li>
-                        <li>Scientific literature synthesis and hypothesis generation</li>
-                        <li>More natural and helpful virtual assistants</li>
-                    </ul>
-                    
-                    <p>However, the researchers caution that significant work remains in areas like bias mitigation and safety controls before such powerful models can be widely deployed. "With capabilities of this magnitude come significant responsibilities," notes Dr. Chen. "We're implementing multiple layers of safeguards as we begin limited testing with partner organizations."</p>
-                    
-                    <p>The full technical report and initial API access details are available on OpenAI's research portal, with broader availability expected later this year following additional safety testing.</p>
+                    <!-- Article content here... -->
                 </div>
-            </article>
-        </div>
-    </main>
-    
+                
+                <div class="article-tags">
+                    <span class="tag-label">Tags:</span>
+                    <a href="#" class="tag">Artificial Intelligence</a>
+                    <a href="#" class="tag">NLP</a>
+                    <a href="#" class="tag">Machine Learning</a>
+                    <a href="#" class="tag">Research</a>
+                </div>
+                
+                <div class="article-actions">
+                    <button class="action-button like-button"><i class="far fa-thumbs-up"></i> Like (1.2K)</button>
+                    <button class="action-button share-button"><i class="fas fa-share"></i> Share</button>
+                    <button class="action-button bookmark-button"><i class="far fa-bookmark"></i> Bookmark</button>
+                </div>
+            </div>
+        </article>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-container">
                 <div class="footer-column">
                     <h3>TechTrends</h3>
-                    <p>Your trusted source for the latest in technology news, innovations, and analysis from the digital world.</p>
+                    <p class="footer-about">Your trusted source for the latest in technology news, innovations, and analysis from the digital world.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Categories</h3>
                     <ul class="footer-links">
-                        <li><a href="#">AI & Machine Learning</a></li>
-                        <li><a href="#">Programming</a></li>
-                        <li><a href="#">Gadgets & Hardware</a></li>
-                        <li><a href="#">Cybersecurity</a></li>
-                        <li><a href="#">Software</a></li>
+                        <li><a href="#"><i class="fas fa-robot"></i> AI & Machine Learning</a></li>
+                        <li><a href="#"><i class="fas fa-code"></i> Programming</a></li>
+                        <li><a href="#"><i class="fas fa-mobile-alt"></i> Gadgets & Hardware</a></li>
+                        <li><a href="#"><i class="fas fa-shield-alt"></i> Cybersecurity</a></li>
+                        <li><a href="#"><i class="fas fa-desktop"></i> Software</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Company</h3>
                     <ul class="footer-links">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+                        <li><a href="#"><i class="fas fa-lock"></i> Privacy Policy</a></li>
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Terms of Service</a></li>
+                        <li><a href="#"><i class="fas fa-bullhorn"></i> Advertise With Us</a></li>
                     </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p class="newsletter-text">Subscribe to our newsletter for the latest tech news delivered to your inbox.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
                 </div>
             </div>
             
@@ -987,21 +780,376 @@
             </div>
         </div>
     </footer>
-    
-    <script>
+
+    <style>
+        /* Article Page */
+        .article-page {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 40px 0;
+            margin-bottom: 50px;
+        }
+        
+        .article-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            font-weight: 800;
+        }
+        
+        .article-meta-large {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #6b7280;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 0.95rem;
+        }
+        
+        .article-meta-large i {
+            margin-right: 5px;
+            color: #2563eb;
+        }
+        
+        .article-image-large {
+            height: 500px;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .article-body {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .article-body p {
+            margin-bottom: 25px;
+        }
+        
+        .article-body h2 {
+            font-size: 1.8rem;
+            margin: 40px 0 20px;
+            color: #222;
+            font-weight: 700;
+        }
+        
+        .article-body h3 {
+            font-size: 1.4rem;
+            margin: 30px 0 15px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .article-body img {
+            max-width: 100%;
+            height: auto;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .article-body ul, .article-body ol {
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+        
+        .article-body li {
+            margin-bottom: 10px;
+        }
+        
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            margin: 50px auto 30px;
+            padding: 0 20px;
+            max-width: 800px;
+        }
+        
+        .tag-label {
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: #f0f4ff;
+            color: #2563eb;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .tag:hover {
+            background-color: #2563eb;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .article-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+            padding: 0 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .action-button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #f3f4f6;
+            color: #4b5563;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        
+        .action-button:hover {
+            background-color: #e5e7eb;
+        }
+        
+        .action-button i {
+            font-size: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1e293b;
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #3b82f6;
+            position: relative;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #2563eb;
+        }
+        
+        .footer-about {
+            color: #d1d5db;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #334155;
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: #2563eb;
+            transform: translateY(-3px);
+            text-decoration: none;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #d1d5db;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            text-decoration: none;
+            transform: translateX(5px);
+        }
+        
+        .footer-links i {
+            width: 20px;
+            color: #3b82f6;
+        }
+        
+        .newsletter-text {
+            color: #d1d5db;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .newsletter-form input {
+            padding: 12px 15px;
+            border: none;
+            border-radius: 6px;
+            background-color: #334155;
+            color: white;
+            outline: none;
+        }
+        
+        .newsletter-form input::placeholder {
+            color: #9ca3af;
+        }
+        
+        .newsletter-form button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #1d4ed8;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design - Article & Footer */
+        @media (max-width: 992px) {
+            .article-image-large {
+                height: 400px;
+            }
+            
+            .article-header h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .article-image-large {
+                height: 300px;
+            }
+            
+            .article-meta-large {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .article-actions {
+                flex-direction: column;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-column {
+                text-align: center;
+            }
+            
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .footer-links a {
+                justify-content: center;
+            }
+        }
+    </style>
+
+        <script>
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mainNav = document.getElementById('main-nav');
         
         mobileMenuBtn.addEventListener('click', () => {
             mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ? '✕' : '☰';
         });
         
         // Category tabs functionality
         const categoryTabs = document.querySelectorAll('.category-tab');
         const categoryContents = document.querySelectorAll('.category-content');
         
-        categoryTabs.forEach((tab, index) => {
+        categoryTabs.forEach(tab => {
             tab.addEventListener('click', () => {
                 // Remove active class from all tabs and contents
                 categoryTabs.forEach(t => t.classList.remove('active'));
@@ -1009,17 +1157,58 @@
                 
                 // Add active class to clicked tab and corresponding content
                 tab.classList.add('active');
-                categoryContents[index].classList.add('active');
+                const categoryId = tab.getAttribute('data-category');
+                document.getElementById(categoryId).classList.add('active');
             });
         });
         
         // Article page navigation simulation
-       const articleLinks = document.querySelectorAll('.article-title a, .news-title a');
-    articleLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            document.getElementById('homepage-content').style.display = 'none';
-            document.getElementById('article-content').style.display = 'block';
+        const articleLinks = document.querySelectorAll('.article-link, .news-link');
+        articleLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('homepage-content').style.display = 'none';
+                document.getElementById('article-content').style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
         });
-    });
-</script>
+        
+        // Back to homepage functionality (would need a back button in article view)
+        function backToHomepage() {
+            document.getElementById('article-content').style.display = 'none';
+            document.getElementById('homepage-content').style.display = 'block';
+        }
+        
+        // Search functionality
+        const searchButton = document.getElementById('search-button');
+        const searchInput = document.getElementById('search-input');
+        
+        searchButton.addEventListener('click', () => {
+            if (searchInput.value.trim() !== '') {
+                alert(`Searching for: ${searchInput.value}`);
+                // In a real implementation, this would redirect to search results
+            }
+        });
+        
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && searchInput.value.trim() !== '') {
+                alert(`Searching for: ${searchInput.value}`);
+                // In a real implementation, this would redirect to search results
+            }
+        });
+        
+        // Like button functionality
+        const likeButton = document.querySelector('.like-button');
+        if (likeButton) {
+            likeButton.addEventListener('click', function() {
+                this.classList.toggle('liked');
+                if (this.classList.contains('liked')) {
+                    this.innerHTML = '<i class="fas fa-thumbs-up"></i> Liked (1.2K)';
+                } else {
+                    this.innerHTML = '<i class="far fa-thumbs-up"></i> Like (1.2K)';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
