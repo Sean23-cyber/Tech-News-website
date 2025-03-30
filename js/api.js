@@ -1,5 +1,9 @@
 // api.js - Updated to use proxy endpoint securely
+console.log("API script loaded!"); // This should appear in browser console
 
+document.addEventListener('DOMContentLoaded', () => {
+  console.log("DOM fully loaded"); // This should appear second
+});
 // Proxy configuration
 const PROXY_URL = '/api/proxy';
 
