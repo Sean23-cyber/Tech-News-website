@@ -1,23 +1,22 @@
-// api.js - API handling for TechTrends website
+// api.js - API handling for TechTrends using NewsAPI.org
 
-// Base API URL (this would be your backend endpoint)
-const API_BASE_URL = 'https://api.techtrends.example.com/v1';
+// API Configuration
+const API_BASE_URL = 'https://newsapi.org/v2';
+const API_KEY = 'YOUR_NEWSAPI_KEY'; // Replace with your actual API key
 
-// API endpoints
+// API endpoints mapping to NewsAPI
 const API_ENDPOINTS = {
-    articles: '/articles',
-    featured: '/articles/featured',
-    categories: '/categories',
-    search: '/search',
-    articleDetail: (id) => `/articles/${id}`,
-    relatedArticles: (id) => `/articles/${id}/related`
+    topHeadlines: '/top-headlines',
+    everything: '/everything',
+    sources: '/sources'
 };
 
 // Common headers for API requests
 const getHeaders = () => {
     return {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        // NewsAPI requires the API key in the headers
+        'X-Api-Key': API_KEY
     };
 };
 
@@ -27,20 +26,31 @@ const handleApiError = (error) => {
     throw error;
 };
 
+// Map our categories to NewsAPI's possible query parameters
+const categoryMap = {
+    'all': 'general',
+    'AI & Machine Learning': 'technology',
+    'Programming': 'technology',
+    'Gadgets': 'technology',
+    'Security': 'technology'
+};
+
 // API Service
 const ApiService = {
     /**
-     * Fetch featured articles
+     * Fetch featured articles (top headlines in technology)
      * @param {number} limit - Number of articles to fetch
      * @returns {Promise} - Promise with featured articles data
      */
     getFeaturedArticles: async (limit = 3) => {
         try {
-            const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.featured}?limit=${limit}`, {
-                headers: getHeaders()
-            });
+            const response = await fetch(
+                `${API_BASE_URL}${API_ENDPOINTS.topHeadlines}?category=technology&pageSize=${limit}`,
+                { headers: getHeaders() }
+            );
             if (!response.ok) throw new Error('Failed to fetch featured articles');
-            return await response.json();
+            const data = await response.json();
+            return data.articles.map(article => formatArticle(article, 'Technology'));
         } catch (error) {
             handleApiError(error);
         }
@@ -55,30 +65,14 @@ const ApiService = {
      */
     getArticlesByCategory: async (category, page = 1, perPage = 10) => {
         try {
+            const newsApiCategory = categoryMap[category] || 'technology';
             const response = await fetch(
-                `${API_BASE_URL}${API_ENDPOINTS.articles}?category=${category}&page=${page}&per_page=${perPage}`,
+                `${API_BASE_URL}${API_ENDPOINTS.topHeadlines}?category=${newsApiCategory}&page=${page}&pageSize=${perPage}`,
                 { headers: getHeaders() }
             );
             if (!response.ok) throw new Error(`Failed to fetch ${category} articles`);
-            return await response.json();
-        } catch (error) {
-            handleApiError(error);
-        }
-    },
-
-    /**
-     * Fetch article by ID
-     * @param {string} id - Article ID
-     * @returns {Promise} - Promise with article data
-     */
-    getArticleById: async (id) => {
-        try {
-            const response = await fetch(
-                `${API_BASE_URL}${API_ENDPOINTS.articleDetail(id)}`,
-                { headers: getHeaders() }
-            );
-            if (!response.ok) throw new Error('Failed to fetch article');
-            return await response.json();
+            const data = await response.json();
+            return data.articles.map(article => formatArticle(article, category));
         } catch (error) {
             handleApiError(error);
         }
@@ -94,72 +88,52 @@ const ApiService = {
     searchArticles: async (query, page = 1, perPage = 10) => {
         try {
             const response = await fetch(
-                `${API_BASE_URL}${API_ENDPOINTS.search}?q=${encodeURIComponent(query)}&page=${page}&per_page=${perPage}`,
+                `${API_BASE_URL}${API_ENDPOINTS.everything}?q=${encodeURIComponent(query)}&page=${page}&pageSize=${perPage}&sortBy=publishedAt`,
                 { headers: getHeaders() }
             );
             if (!response.ok) throw new Error('Search failed');
-            return await response.json();
-        } catch (error) {
-            handleApiError(error);
-        }
-    },
-
-    /**
-     * Fetch related articles
-     * @param {string} articleId - Original article ID
-     * @param {number} limit - Number of related articles to fetch
-     * @returns {Promise} - Promise with related articles
-     */
-    getRelatedArticles: async (articleId, limit = 4) => {
-        try {
-            const response = await fetch(
-                `${API_BASE_URL}${API_ENDPOINTS.relatedArticles(articleId)}?limit=${limit}`,
-                { headers: getHeaders() }
-            );
-            if (!response.ok) throw new Error('Failed to fetch related articles');
-            return await response.json();
-        } catch (error) {
-            handleApiError(error);
-        }
-    },
-
-    /**
-     * Fetch all categories
-     * @returns {Promise} - Promise with categories data
-     */
-    getCategories: async () => {
-        try {
-            const response = await fetch(
-                `${API_BASE_URL}${API_ENDPOINTS.categories}`,
-                { headers: getHeaders() }
-            );
-            if (!response.ok) throw new Error('Failed to fetch categories');
-            return await response.json();
+            const data = await response.json();
+            return data.articles.map(article => formatArticle(article, 'Search'));
         } catch (error) {
             handleApiError(error);
         }
     }
 };
 
-// Example usage:
-// ApiService.getFeaturedArticles().then(data => console.log(data));
-// ApiService.getArticleById('123').then(data => console.log(data));
+/**
+ * Format NewsAPI article to our expected format
+ */
+const formatArticle = (article, category) => {
+    return {
+        id: article.url, // Using URL as ID since NewsAPI doesn't provide IDs
+        title: article.title,
+        excerpt: article.description || 'No description available',
+        content: article.content || '',
+        category: category,
+        date: new Date(article.publishedAt).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        }),
+        author: article.author || 'Unknown Author',
+        image: article.urlToImage || 'https://source.unsplash.com/random/600x400/?' + category.toLowerCase(),
+        source: article.source.name,
+        url: article.url
+    };
+};
 
-// For the frontend integration, you would add event listeners and DOM manipulation code
-// to fetch and display data when the page loads or when users interact with the UI.
-
-// Frontend integration example (could be in a separate file or at the bottom of this one)
+// Frontend integration remains the same as before
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize the page with featured articles
     ApiService.getFeaturedArticles()
         .then(articles => {
-            // Render articles to the DOM
             console.log('Featured articles:', articles);
-            // You would have a function here to update the DOM with the articles
+            // Render articles to the DOM
+            renderFeaturedArticles(articles);
         })
         .catch(error => {
             console.error('Error loading featured articles:', error);
-            // Show error message to user
+            showError('Failed to load featured articles');
         });
 
     // Search functionality
@@ -167,72 +141,75 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     
     if (searchButton && searchInput) {
-        searchButton.addEventListener('click', () => {
-            const query = searchInput.value.trim();
-            if (query) {
-                ApiService.searchArticles(query)
-                    .then(results => {
-                        console.log('Search results:', results);
-                        // Update the DOM with search results
-                        // You might want to hide other content and show search results
-                    })
-                    .catch(error => {
-                        console.error('Search error:', error);
-                        // Show error message to user
-                    });
-            }
-        });
-        
-        // Also allow search on Enter key
+        searchButton.addEventListener('click', handleSearch);
         searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                searchButton.click();
-            }
+            if (e.key === 'Enter') handleSearch();
         });
+    }
+
+    function handleSearch() {
+        const query = searchInput.value.trim();
+        if (query) {
+            ApiService.searchArticles(query)
+                .then(results => {
+                    console.log('Search results:', results);
+                    renderSearchResults(results);
+                })
+                .catch(error => {
+                    console.error('Search error:', error);
+                    showError('Search failed. Please try again.');
+                });
+        }
     }
 
     // Category tab switching
     const categoryTabs = document.querySelectorAll('.category-tab');
-    if (categoryTabs.length > 0) {
-        // The first tab is "Latest News" which would fetch all articles
-        categoryTabs[0].addEventListener('click', () => {
-            ApiService.getArticlesByCategory('all')
+    categoryTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const category = tab.textContent.trim();
+            ApiService.getArticlesByCategory(category)
                 .then(articles => {
-                    console.log('Latest articles:', articles);
-                    // Update the DOM with latest articles
+                    console.log(`${category} articles:`, articles);
+                    renderCategoryArticles(articles, category);
                 })
                 .catch(error => {
-                    console.error('Error loading latest articles:', error);
+                    console.error(`Error loading ${category} articles:`, error);
+                    showError(`Failed to load ${category} articles`);
                 });
         });
-
-        // Other category tabs would fetch articles by specific category
-        // You would need to map the tab text to category slugs
-        const categoryMap = {
-            'AI & Machine Learning': 'ai-ml',
-            'Programming': 'programming',
-            'Gadgets': 'gadgets',
-            'Security': 'security'
-        };
-
-        categoryTabs.forEach((tab, index) => {
-            if (index > 0) { // Skip the first tab which we already handled
-                tab.addEventListener('click', () => {
-                    const categoryName = tab.textContent.trim();
-                    const categorySlug = categoryMap[categoryName];
-                    
-                    if (categorySlug) {
-                        ApiService.getArticlesByCategory(categorySlug)
-                            .then(articles => {
-                                console.log(`${categoryName} articles:`, articles);
-                                // Update the DOM with category articles
-                            })
-                            .catch(error => {
-                                console.error(`Error loading ${categoryName} articles:`, error);
-                            });
-                    }
-                });
-            }
-        });
-    }
+    });
 });
+
+// Example rendering functions (you'll need to implement these)
+function renderFeaturedArticles(articles) {
+    // Implementation depends on your HTML structure
+    const featuredGrid = document.querySelector('.featured-grid');
+    if (featuredGrid) {
+        featuredGrid.innerHTML = articles.map(article => `
+            <article class="featured-article">
+                <div class="article-image" style="background-image: url('${article.image}')">
+                    <span class="article-category">${article.category}</span>
+                </div>
+                <div class="article-content">
+                    <h3 class="article-title">
+                        <a href="${article.url}" target="_blank">${article.title}</a>
+                    </h3>
+                    <p class="article-excerpt">${article.excerpt}</p>
+                    <div class="article-meta">
+                        <span>${article.date}</span>
+                        <span>By ${article.author}</span>
+                    </div>
+                </div>
+            </article>
+        `).join('');
+    }
+}
+
+function showError(message) {
+    // Display error message to user
+    const errorElement = document.createElement('div');
+    errorElement.className = 'error-message';
+    errorElement.textContent = message;
+    document.body.prepend(errorElement);
+    setTimeout(() => errorElement.remove(), 5000);
+}
