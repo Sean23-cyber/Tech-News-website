@@ -44,10 +44,13 @@ const ApiService = {
      */
     getFeaturedArticles: async (limit = 3) => {
         try {
-            const response = await fetch(
-                `${API_BASE_URL}${API_ENDPOINTS.topHeadlines}?category=technology&pageSize=${limit}`,
-                { headers: getHeaders() }
-            );
+           const response = await fetch('/api/proxy', {
+  method: 'POST',
+  body: JSON.stringify({
+    endpoint: 'top-headlines',
+    params: { category: 'technology', pageSize: limit }
+  })
+});
             if (!response.ok) throw new Error('Failed to fetch featured articles');
             const data = await response.json();
             return data.articles.map(article => formatArticle(article, 'Technology'));
