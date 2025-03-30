@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech News</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #121212; color: white; text-align: center; }
+        h1 { color: #4DB6AC; border-bottom: 2px solid #4DB6AC; padding-bottom: 10px; }
+        .news-container { max-width: 800px; margin: auto; padding: 20px; }
+        .news-item { background: #333; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .news-title { font-size: 20px; color: #81D4FA; }
+        .news-category { font-size: 14px; color: #FFEB3B; }
+        .news-content { margin-top: 10px; color: #E0E0E0; }
+    </style>
+</head>
+<body>
+    <h1>Latest Tech News</h1>
+    <div class="news-container" id="newsContainer"></div>
+
+    <script>
+        fetch("/api/news")
+            .then(res => res.json())
+            .then(data => {
+                const container = document.getElementById("newsContainer");
+                data.forEach(news => {
+                    const newsItem = document.createElement("div");
+                    newsItem.className = "news-item";
+                    newsItem.innerHTML = `
+                        <div class="news-title">${news.title}</div>
+                        <div class="news-category">Category: ${news.category}</div>
+                        <div class="news-content">${news.content}</div>
+                    `;
+                    container.appendChild(newsItem);
+                });
+            });
+    </script>
+</body>
+</html>
