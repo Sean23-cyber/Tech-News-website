@@ -1,8 +1,11 @@
-export default async (req, res) => {
+// api/proxy.js
+module.exports = async (req, res) => {
+  const NEWSAPI_KEY = process.env.NEWSAPI_KEY;
+  const { endpoint, params } = req.method === 'POST' 
+    ? JSON.parse(req.body) 
+    : req.query;
+  
   try {
-    const NEWSAPI_KEY = process.env.NEWSAPI_KEY;
-    const { endpoint, params } = req.body;
-    
     const url = new URL(`https://newsapi.org/v2/${endpoint}`);
     Object.entries(params).forEach(([key, value]) => {
       url.searchParams.append(key, value);
