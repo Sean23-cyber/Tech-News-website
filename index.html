@@ -3,1462 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechTrends | Latest Technology News</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>TechBrief - Simple Tech News</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Global Styles */
+        /* CSS will go here */
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background-color: #f5f7fa;
+            background-color: #f5f5f5;
             color: #333;
             line-height: 1.6;
         }
         
-        a {
-            text-decoration: none;
-            color: #2563eb;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
         header {
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
             position: sticky;
             top: 0;
             z-index: 100;
         }
         
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-        
         .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #2563eb;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
         
-        .logo span {
-            color: #333;
-        }
-        
-        nav ul {
+        nav {
             display: flex;
-            list-style: none;
-            gap: 20px;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
         }
         
         nav a {
-            color: #555;
-            font-weight: 500;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-        
-        nav a:hover, nav a.active {
-            background-color: #f0f4ff;
-            color: #2563eb;
-            text-decoration: none;
-        }
-        
-        .search-bar {
-            display: flex;
-            margin-left: 20px;
-        }
-        
-        .search-bar input {
-            padding: 8px 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px 0 0 4px;
-            outline: none;
-            width: 200px;
-            transition: all 0.3s ease;
-        }
-        
-        .search-bar input:focus {
-            border-color: #2563eb;
-            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
-        }
-        
-        .search-bar button {
-            background-color: #2563eb;
             color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
         }
         
-        .search-bar button:hover {
-            background-color: #1d4ed8;
+        nav a:hover {
+            background-color: #34495e;
         }
         
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #333;
-            transition: transform 0.3s ease;
-        }
-        
-        .mobile-menu-btn:hover {
-            transform: scale(1.1);
-        }
-
-        /* Responsive Design - Header */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-wrap: wrap;
-            }
-            
-            nav {
-                order: 3;
-                width: 100%;
-                margin-top: 15px;
-                display: none;
-            }
-            
-            nav.active {
-                display: block;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .search-bar {
-                margin-left: 0;
-                order: 2;
-                width: 100%;
-                margin-top: 15px;
-            }
-            
-            .search-bar input {
-                width: 100%;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">Tech<span>Trends</span></div>
-            
-            <div class="search-bar">
-                <input type="text" id="search-input" placeholder="Search news...">
-                <button id="search-button"><i class="fas fa-search"></i></button>
-            </div>
-            
-            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">☰</button>
-            
-            <nav id="main-nav">
-                <ul>
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">AI & ML</a></li>
-                    <li><a href="#">Programming</a></li>
-                    <li><a href="#">Gadgets</a></li>
-                    <li><a href="#">Security</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-        <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Latest Technology News</h1>
-            <p>Stay informed with the most recent developments in the tech world</p>
-            <a href="#featured" class="hero-button">Explore Featured Stories</a>
-        </div>
-    </section>
-
-    <!-- Featured Articles -->
-    <section class="featured-articles" id="featured">
-        <div class="container">
-            <h2 class="section-title">Featured Stories</h2>
-            
-            <div class="featured-grid">
-                <article class="featured-article">
-                    <div class="article-image" style="background-image: url('https://source.unsplash.com/random/600x400/?ai')">
-                        <span class="article-category">AI</span>
-                    </div>
-                    <div class="article-content">
-                        <h3 class="article-title">
-                            <a href="#" class="article-link">New AI Model Breaks Record in Natural Language Processing</a>
-                        </h3>
-                        <p class="article-excerpt">
-                            A new large language model released this week shows unprecedented accuracy in complex reasoning tasks and natural language understanding.
-                        </p>
-                        <div class="article-meta">
-                            <span><i class="far fa-calendar-alt"></i> March 28, 2025</span>
-                            <span><i class="far fa-user"></i> James Wilson</span>
-                        </div>
-                    </div>
-                </article>
-                
-                <article class="featured-article">
-                    <div class="article-image" style="background-image: url('https://source.unsplash.com/random/600x400/?cybersecurity')">
-                        <span class="article-category">Security</span>
-                    </div>
-                    <div class="article-content">
-                        <h3 class="article-title">
-                            <a href="#" class="article-link">Major Financial Institutions Report New Wave of Sophisticated Attacks</a>
-                        </h3>
-                        <p class="article-excerpt">
-                            Security experts warn of a new type of ransomware targeting banking infrastructure. Here's how companies are responding.
-                        </p>
-                        <div class="article-meta">
-                            <span><i class="far fa-calendar-alt"></i> March 29, 2025</span>
-                            <span><i class="far fa-user"></i> Sarah Chen</span>
-                        </div>
-                    </div>
-                </article>
-                
-                <article class="featured-article">
-                    <div class="article-image" style="background-image: url('https://source.unsplash.com/random/600x400/?programming')">
-                        <span class="article-category">Programming</span>
-                    </div>
-                    <div class="article-content">
-                        <h3 class="article-title">
-                            <a href="#" class="article-link">TypeScript 6.0 Released with Game-Changing Features</a>
-                        </h3>
-                        <p class="article-excerpt">
-                            The latest version of TypeScript introduces pattern matching, improved type inference, and performance optimizations.
-                        </p>
-                        <div class="article-meta">
-                            <span><i class="far fa-calendar-alt"></i> March 27, 2025</span>
-                            <span><i class="far fa-user"></i> Alex Johnson</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <style>
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #2563eb, #3b82f6);
             color: white;
-            padding: 80px 0;
-            text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-            overflow: hidden;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
         
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://source.unsplash.com/random/1600x900/?technology') no-repeat center center;
-            background-size: cover;
-            opacity: 0.1;
-            z-index: 0;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
         }
         
-        .hero .container {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            opacity: 0.9;
-        }
-        
-        .hero-button {
-            display: inline-block;
-            background-color: white;
-            color: #2563eb;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .hero-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-            text-decoration: none;
-        }
-        
-        /* Featured Articles */
-        .featured-articles {
-            margin-bottom: 60px;
-        }
-        
-        .section-title {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            position: relative;
-            padding-bottom: 15px;
-            font-weight: 700;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 80px;
-            height: 4px;
-            background-color: #2563eb;
-            border-radius: 2px;
-        }
-        
-        .featured-grid {
+        .main-content {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr;
+            gap: 2rem;
         }
         
-        .featured-article {
-            background-color: white;
-            border-radius: 10px;
+        @media (min-width: 768px) {
+            .main-content {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+        
+        .articles-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 600px) {
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
         }
         
-        .featured-article:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        .article-card:hover {
+            transform: translateY(-5px);
         }
         
         .article-image {
-            height: 220px;
-            background-color: #ddd;
-            position: relative;
-            overflow: hidden;
+            height: 200px;
             background-size: cover;
             background-position: center;
         }
         
-        .article-category {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background-color: #2563eb;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
         .article-content {
-            padding: 25px;
+            padding: 1rem;
         }
         
         .article-title {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
-        
-        .article-link {
-            color: #222;
-            transition: color 0.3s ease;
-        }
-        
-        .article-link:hover {
-            color: #2563eb;
-            text-decoration: none;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
         }
         
         .article-excerpt {
             color: #666;
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-            line-height: 1.6;
+            margin-bottom: 1rem;
         }
         
         .article-meta {
             display: flex;
             justify-content: space-between;
             color: #888;
-            font-size: 0.85rem;
-        }
-        
-        .article-meta i {
-            margin-right: 5px;
-        }
-        
-        /* Responsive Design - Hero & Featured */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 60px 0;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-                padding: 0 20px;
-            }
-            
-            .featured-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .section-title {
-                font-size: 1.6rem;
-            }
-        }
-    </style>
-
-        <!-- News Categories -->
-    <section class="news-categories">
-        <div class="container">
-            <div class="category-tabs">
-                <div class="category-tab active" data-category="latest">Latest News</div>
-                <div class="category-tab" data-category="ai">AI & Machine Learning</div>
-                <div class="category-tab" data-category="programming">Programming</div>
-                <div class="category-tab" data-category="gadgets">Gadgets</div>
-                <div class="category-tab" data-category="security">Security</div>
-            </div>
-            
-            <!-- Latest News Content -->
-            <div class="category-content active" id="latest">
-                <div class="news-grid">
-                    <div class="news-card">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?quantum')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#" class="news-link">Tech Giants Announce Collaboration on Quantum Computing Standards</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                Major tech companies are joining forces to establish industry-wide standards for quantum computing hardware and software interoperability.
-                            </p>
-                            <div class="news-meta">
-                                <span><i class="far fa-calendar-alt"></i> March 30, 2025</span>
-                                <span><i class="far fa-clock"></i> 5 min read</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Additional news cards for latest news... -->
-                </div>
-                <div class="view-all-container">
-                    <a href="#" class="view-all-button">View All Latest News <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            
-            <!-- AI & Machine Learning Content -->
-            <div class="category-content" id="ai">
-                <div class="news-grid">
-                    <div class="news-card">
-                        <div class="news-image" style="background-image: url('https://source.unsplash.com/random/600x400/?ai-content')"></div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="#" class="news-link">AI-Generated Content Now Indistinguishable from Human Work</a>
-                            </h3>
-                            <p class="news-excerpt">
-                                New research shows that most humans can no longer reliably identify AI-created content across various media formats.
-                            </p>
-                            <div class="news-meta">
-                                <span><i class="far fa-calendar-alt"></i> March 30, 2025</span>
-                                <span><i class="far fa-clock"></i> 4 min read</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Additional news cards for AI... -->
-                </div>
-                <div class="view-all-container">
-                    <a href="#" class="view-all-button">View All AI News <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            
-            <!-- Additional category content sections... -->
-        </div>
-    </section>
-
-    <style>
-        /* News Categories */
-        .news-categories {
-            margin-bottom: 80px;
-        }
-        
-        .category-tabs {
-            display: flex;
-            border-bottom: 2px solid #e5e7eb;
-            margin-bottom: 30px;
-            overflow-x: auto;
-            scrollbar-width: none;
-            gap: 5px;
-        }
-        
-        .category-tabs::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .category-tab {
-            padding: 12px 25px;
-            cursor: pointer;
-            font-weight: 600;
-            color: #6b7280;
-            white-space: nowrap;
-            transition: all 0.3s ease;
-            position: relative;
-            border-radius: 6px 6px 0 0;
-        }
-        
-        .category-tab:hover {
-            color: #2563eb;
-            background-color: #f0f4ff;
-        }
-        
-        .category-tab.active {
-            color: #2563eb;
-            background-color: #f0f4ff;
-            border-bottom: 3px solid #2563eb;
-        }
-        
-        .category-content {
-            display: none;
-        }
-        
-        .category-content.active {
-            display: block;
-        }
-        
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-        
-        .news-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #e5e7eb;
-        }
-        
-        .news-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-        }
-        
-        .news-image {
-            height: 180px;
-            background-color: #eee;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .news-content {
-            padding: 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .news-title {
-            font-size: 1.1rem;
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-        
-        .news-link {
-            color: #222;
-            transition: color 0.3s ease;
-        }
-        
-        .news-link:hover {
-            color: #2563eb;
-            text-decoration: none;
-        }
-        
-        .news-excerpt {
-            color: #666;
             font-size: 0.9rem;
-            margin-bottom: 15px;
-            flex: 1;
-            line-height: 1.6;
         }
         
-        .news-meta {
-            color: #888;
-            font-size: 0.8rem;
+        .sidebar {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 1.5rem;
         }
         
-        .news-meta i {
-            margin-right: 5px;
-        }
-        
-        .view-all-container {
+        .ad-container {
+            background: #eaeaea;
+            padding: 1rem;
             text-align: center;
-            margin-top: 20px;
+            border-radius: 8px;
         }
         
-        .view-all-button {
-            display: inline-block;
-            color: #2563eb;
-            font-weight: 600;
-            padding: 10px 20px;
-            border-radius: 6px;
-            transition: all 0.3s ease;
+        .ad-label {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 0.5rem;
         }
         
-        .view-all-button:hover {
-            background-color: #f0f4ff;
-            text-decoration: none;
+        .category-title {
+            margin: 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #2c3e50;
         }
         
-        .view-all-button i {
-            margin-left: 5px;
-            transition: transform 0.3s ease;
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
         }
         
-        .view-all-button:hover i {
-            transform: translateX(3px);
-        }
-        
-        /* Responsive Design - News Categories */
-        @media (max-width: 768px) {
-            .category-tabs {
-                gap: 0;
+        /* Mobile styles */
+        @media (max-width: 767px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #2c3e50;
+                padding: 1rem;
             }
             
-            .category-tab {
-                padding: 10px 15px;
-                font-size: 0.9rem;
+            nav.active {
+                display: flex;
             }
             
-            .news-grid {
-                grid-template-columns: 1fr;
+            .mobile-menu-btn {
+                display: block;
             }
         }
     </style>
-
-        <!-- Article Page Content (hidden by default) -->
-    <div id="article-content" style="display: none;">
-        <article class="article-page">
-            <div class="container">
-                <div class="article-header">
-                    <h1>New AI Model Breaks Record in Natural Language Processing</h1>
-                    <div class="article-meta-large">
-                        <span><i class="far fa-user"></i> By James Wilson</span>
-                        <span><i class="far fa-calendar-alt"></i> March 28, 2025</span>
-                        <span><i class="far fa-clock"></i> 8 min read</span>
-                        <span><i class="far fa-eye"></i> 12.4K views</span>
-                    </div>
+</head>
+<body>
+    <header>
+        <div class="logo">TechBrief</div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+        <nav id="main-nav">
+            <a href="#">Home</a>
+            <a href="#">AI</a>
+            <a href="#">Gadgets</a>
+            <a href="#">Security</a>
+            <a href="#">Programming</a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div class="main-content">
+            <main>
+                <h2 class="category-title">Latest Tech News</h2>
+                <div class="articles-grid" id="articles-grid">
+                    <!-- Articles will be loaded here by JavaScript -->
                 </div>
-                
-                <div class="article-image-large" style="background-image: url('https://source.unsplash.com/random/1200x800/?ai')">
-                    <div class="image-caption">GPT-5 architecture diagram (Source: OpenAI Research)</div>
-                </div>
-                
-                <div class="article-body">
-                    <!-- Article content here... -->
-                </div>
-                
-                <div class="article-tags">
-                    <span class="tag-label">Tags:</span>
-                    <a href="#" class="tag">Artificial Intelligence</a>
-                    <a href="#" class="tag">NLP</a>
-                    <a href="#" class="tag">Machine Learning</a>
-                    <a href="#" class="tag">Research</a>
-                </div>
-                
-                <div class="article-actions">
-                    <button class="action-button like-button"><i class="far fa-thumbs-up"></i> Like (1.2K)</button>
-                    <button class="action-button share-button"><i class="fas fa-share"></i> Share</button>
-                    <button class="action-button bookmark-button"><i class="far fa-bookmark"></i> Bookmark</button>
-                </div>
-            </div>
-        </article>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-column">
-                    <h3>TechTrends</h3>
-                    <p class="footer-about">Your trusted source for the latest in technology news, innovations, and analysis from the digital world.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Categories</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-robot"></i> AI & Machine Learning</a></li>
-                        <li><a href="#"><i class="fas fa-code"></i> Programming</a></li>
-                        <li><a href="#"><i class="fas fa-mobile-alt"></i> Gadgets & Hardware</a></li>
-                        <li><a href="#"><i class="fas fa-shield-alt"></i> Cybersecurity</a></li>
-                        <li><a href="#"><i class="fas fa-desktop"></i> Software</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Company</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
-                        <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
-                        <li><a href="#"><i class="fas fa-lock"></i> Privacy Policy</a></li>
-                        <li><a href="#"><i class="fas fa-file-alt"></i> Terms of Service</a></li>
-                        <li><a href="#"><i class="fas fa-bullhorn"></i> Advertise With Us</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Newsletter</h3>
-                    <p class="newsletter-text">Subscribe to our newsletter for the latest tech news delivered to your inbox.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your email address" required>
-                        <button type="submit">Subscribe</button>
-                    </form>
-                </div>
-            </div>
+            </main>
             
-            <div class="copyright">
-                <p>&copy; 2025 TechTrends. All rights reserved.</p>
-            </div>
+            <aside class="sidebar">
+                <div class="ad-container" id="sidebar-ad">
+                    <!-- Ad will be loaded here -->
+                    <div class="ad-label">Advertisement</div>
+                </div>
+                
+                <div class="popular-articles">
+                    <h3>Most Popular</h3>
+                    <div id="popular-articles">
+                        <!-- Popular articles will be loaded here -->
+                    </div>
+                </div>
+                
+                <div class="ad-container" id="sidebar-ad-2">
+                    <!-- Ad will be loaded here -->
+                    <div class="ad-label">Advertisement</div>
+                </div>
+            </aside>
         </div>
+    </div>
+    
+    <div class="container">
+        <div class="ad-container" id="footer-ad">
+            <!-- Ad will be loaded here -->
+            <div class="ad-label">Advertisement</div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 TechBrief. All rights reserved.</p>
     </footer>
 
-    <style>
-        /* Article Page */
-        .article-page {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            padding: 40px 0;
-            margin-bottom: 50px;
-        }
-        
-        .article-header {
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        
-        .article-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            line-height: 1.3;
-            font-weight: 800;
-        }
-        
-        .article-meta-large {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            color: #6b7280;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e5e7eb;
-            font-size: 0.95rem;
-        }
-        
-        .article-meta-large i {
-            margin-right: 5px;
-            color: #2563eb;
-        }
-        
-        .article-image-large {
-            height: 500px;
-            background-color: #eee;
-            background-size: cover;
-            background-position: center;
-            margin-bottom: 40px;
-            border-radius: 8px;
-            position: relative;
-        }
-        
-        .image-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px 20px;
-            font-size: 0.9rem;
-            text-align: center;
-        }
-        
-        .article-body {
-            line-height: 1.8;
-            font-size: 1.1rem;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .article-body p {
-            margin-bottom: 25px;
-        }
-        
-        .article-body h2 {
-            font-size: 1.8rem;
-            margin: 40px 0 20px;
-            color: #222;
-            font-weight: 700;
-        }
-        
-        .article-body h3 {
-            font-size: 1.4rem;
-            margin: 30px 0 15px;
-            color: #333;
-            font-weight: 600;
-        }
-        
-        .article-body img {
-            max-width: 100%;
-            height: auto;
-            margin: 30px 0;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .article-body ul, .article-body ol {
-            margin-bottom: 25px;
-            padding-left: 20px;
-        }
-        
-        .article-body li {
-            margin-bottom: 10px;
-        }
-        
-        .article-tags {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 10px;
-            margin: 50px auto 30px;
-            padding: 0 20px;
-            max-width: 800px;
-        }
-        
-        .tag-label {
-            font-weight: 600;
-            color: #555;
-        }
-        
-        .tag {
-            display: inline-block;
-            background-color: #f0f4ff;
-            color: #2563eb;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-        
-        .tag:hover {
-            background-color: #2563eb;
-            color: white;
-            text-decoration: none;
-        }
-        
-        .article-actions {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 40px;
-            padding: 0 20px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .action-button {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background-color: #f3f4f6;
-            color: #4b5563;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-        }
-        
-        .action-button:hover {
-            background-color: #e5e7eb;
-        }
-        
-        .action-button i {
-            font-size: 1rem;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: #1e293b;
-            color: white;
-            padding: 80px 0 30px;
-        }
-        
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #3b82f6;
-            position: relative;
-        }
-        
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: #2563eb;
-        }
-        
-        .footer-about {
-            color: #d1d5db;
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: #334155;
-            color: white;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background-color: #2563eb;
-            transform: translateY(-3px);
-            text-decoration: none;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-links a {
-            color: #d1d5db;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .footer-links a:hover {
-            color: white;
-            text-decoration: none;
-            transform: translateX(5px);
-        }
-        
-        .footer-links i {
-            width: 20px;
-            color: #3b82f6;
-        }
-        
-        .newsletter-text {
-            color: #d1d5db;
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-        
-        .newsletter-form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .newsletter-form input {
-            padding: 12px 15px;
-            border: none;
-            border-radius: 6px;
-            background-color: #334155;
-            color: white;
-            outline: none;
-        }
-        
-        .newsletter-form input::placeholder {
-            color: #9ca3af;
-        }
-        
-        .newsletter-form button {
-            background-color: #2563eb;
-            color: white;
-            border: none;
-            padding: 12px 15px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-        
-        .newsletter-form button:hover {
-            background-color: #1d4ed8;
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #334155;
-            color: #9ca3af;
-            font-size: 0.9rem;
-        }
-        
-        /* Responsive Design - Article & Footer */
-        @media (max-width: 992px) {
-            .article-image-large {
-                height: 400px;
-            }
+    <script>
+        // Simple JavaScript for the website
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mainNav = document.getElementById('main-nav');
             
-            .article-header h1 {
-                font-size: 2rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .article-image-large {
-                height: 300px;
-            }
-            
-            .article-meta-large {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-            
-            .article-actions {
-                flex-direction: column;
-            }
-            
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .footer-column {
-                text-align: center;
-            }
-            
-            .footer-column h3::after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            
-            .social-links {
-                justify-content: center;
-            }
-            
-            .footer-links a {
-                justify-content: center;
-            }
-        }
-    </style>
-
-        <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mainNav = document.getElementById('main-nav');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ? '✕' : '☰';
-        });
-        
-        // Category tabs functionality
-        const categoryTabs = document.querySelectorAll('.category-tab');
-        const categoryContents = document.querySelectorAll('.category-content');
-        
-        categoryTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Remove active class from all tabs and contents
-                categoryTabs.forEach(t => t.classList.remove('active'));
-                categoryContents.forEach(c => c.classList.remove('active'));
-                
-                // Add active class to clicked tab and corresponding content
-                tab.classList.add('active');
-                const categoryId = tab.getAttribute('data-category');
-                document.getElementById(categoryId).classList.add('active');
+            mobileMenuBtn.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+                mobileMenuBtn.textContent = mainNav.classList.contains('active') ? '✕' : '☰';
             });
+            
+            // Load articles
+            loadArticles();
+            
+            // Load ads
+            loadAds();
         });
         
-        // Article page navigation simulation
-        const articleLinks = document.querySelectorAll('.article-link, .news-link');
-        articleLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                document.getElementById('homepage-content').style.display = 'none';
-                document.getElementById('article-content').style.display = 'block';
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Sample articles data
+        const articles = [
+            {
+                id: 1,
+                title: "The Future of AI in Everyday Applications",
+                excerpt: "How artificial intelligence is becoming integrated into our daily lives in surprising ways.",
+                image: "https://source.unsplash.com/random/600x400/?ai",
+                category: "AI",
+                date: "May 15, 2023",
+                author: "Jane Smith"
+            },
+            {
+                id: 2,
+                title: "Top 5 Programming Languages to Learn in 2023",
+                excerpt: "Which programming languages are most in demand this year and why you should consider them.",
+                image: "https://source.unsplash.com/random/600x400/?programming",
+                category: "Programming",
+                date: "May 14, 2023",
+                author: "John Doe"
+            },
+            {
+                id: 3,
+                title: "New Smartphone Releases: What to Expect",
+                excerpt: "A roundup of the most anticipated smartphone releases for the second half of the year.",
+                image: "https://source.unsplash.com/random/600x400/?smartphone",
+                category: "Gadgets",
+                date: "May 13, 2023",
+                author: "Alex Johnson"
+            },
+            {
+                id: 4,
+                title: "Cybersecurity Threats You Should Know About",
+                excerpt: "The latest cybersecurity threats and how to protect yourself from them.",
+                image: "https://source.unsplash.com/random/600x400/?security",
+                category: "Security",
+                date: "May 12, 2023",
+                author: "Sarah Williams"
+            }
+        ];
+        
+        // Load articles into the grid
+        function loadArticles() {
+            const articlesGrid = document.getElementById('articles-grid');
+            
+            articles.forEach(article => {
+                const articleCard = document.createElement('article');
+                articleCard.className = 'article-card';
+                articleCard.innerHTML = `
+                    <div class="article-image" style="background-image: url('${article.image}')"></div>
+                    <div class="article-content">
+                        <h3 class="article-title">${article.title}</h3>
+                        <p class="article-excerpt">${article.excerpt}</p>
+                        <div class="article-meta">
+                            <span>${article.date}</span>
+                            <span>${article.author}</span>
+                        </div>
+                    </div>
+                `;
+                articlesGrid.appendChild(articleCard);
             });
-        });
-        
-        // Back to homepage functionality (would need a back button in article view)
-        function backToHomepage() {
-            document.getElementById('article-content').style.display = 'none';
-            document.getElementById('homepage-content').style.display = 'block';
+            
+            // Load popular articles (just using the same articles for demo)
+            const popularArticles = document.getElementById('popular-articles');
+            articles.slice(0, 3).forEach(article => {
+                const popularArticle = document.createElement('div');
+                popularArticle.className = 'article-card';
+                popularArticle.style.marginBottom = '1rem';
+                popularArticle.innerHTML = `
+                    <h4>${article.title}</h4>
+                    <small>${article.date}</small>
+                `;
+                popularArticles.appendChild(popularArticle);
+            });
         }
         
-        // Search functionality
-        const searchButton = document.getElementById('search-button');
-        const searchInput = document.getElementById('search-input');
-        
-        searchButton.addEventListener('click', () => {
-            if (searchInput.value.trim() !== '') {
-                alert(`Searching for: ${searchInput.value}`);
-                // In a real implementation, this would redirect to search results
-            }
-        });
-        
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && searchInput.value.trim() !== '') {
-                alert(`Searching for: ${searchInput.value}`);
-                // In a real implementation, this would redirect to search results
-            }
-        });
-        
-        // Like button functionality
-        const likeButton = document.querySelector('.like-button');
-        if (likeButton) {
-            likeButton.addEventListener('click', function() {
-                this.classList.toggle('liked');
-                if (this.classList.contains('liked')) {
-                    this.innerHTML = '<i class="fas fa-thumbs-up"></i> Liked (1.2K)';
-                } else {
-                    this.innerHTML = '<i class="far fa-thumbs-up"></i> Like (1.2K)';
+        // Simple ad loading function
+        function loadAds() {
+            const ads = [
+                {
+                    id: 'sidebar-ad',
+                    html: '<img src="https://via.placeholder.com/300x250" alt="Advertisement">'
+                },
+                {
+                    id: 'sidebar-ad-2',
+                    html: '<img src="https://via.placeholder.com/300x250" alt="Advertisement">'
+                },
+                {
+                    id: 'footer-ad',
+                    html: '<img src="https://via.placeholder.com/728x90" alt="Advertisement">'
+                }
+            ];
+            
+            ads.forEach(ad => {
+                const adContainer = document.getElementById(ad.id);
+                if (adContainer) {
+                    adContainer.insertAdjacentHTML('afterbegin', ad.html);
                 }
             });
         }
-
-       // API Configuration
-const API_BASE_URL = 'http://localhost:3000/api'; // Change in production to your deployed backend URL
-
-// DOM Elements
-const featuredGrid = document.querySelector('.featured-grid');
-const newsGrids = document.querySelectorAll('.news-grid');
-searchButton = document.getElementById('search-button');
-searchInput = document.getElementById('search-input');
-
-// Fetch Articles from our backend
-async function fetchArticles(params = {}) {
-    try {
-        const queryString = new URLSearchParams(params).toString();
-        const response = await fetch(`${API_BASE_URL}/news?${queryString}`);
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        
-        if (!data.success) {
-            throw new Error(data.message || 'Failed to fetch articles');
-        }
-        
-        return data.articles || [];
-    } catch (error) {
-        console.error('Error fetching articles:', error);
-        throw error;
-    }
-}
-
-// Fetch Featured Articles
-async function fetchFeaturedArticles() {
-    try {
-        setLoadingState(featuredGrid, true);
-        
-        const articles = await fetchArticles({ 
-            pageSize: 3,
-            sortBy: 'popularity'
-        });
-        
-        featuredGrid.innerHTML = '';
-        
-        if (articles.length === 0) {
-            featuredGrid.innerHTML = '<p class="info-message">No featured articles found</p>';
-            return;
-        }
-        
-        articles.forEach(article => {
-            const articleEl = createArticleElement(article, true);
-            featuredGrid.appendChild(articleEl);
-        });
-    } catch (error) {
-        featuredGrid.innerHTML = '<p class="error-message">Failed to load featured articles</p>';
-    } finally {
-        setLoadingState(featuredGrid, false);
-    }
-}
-
-// Fetch Category News
-async function fetchCategoryNews(category, pageSize = 6) {
-    try {
-        const grid = document.querySelector(`#${category} .news-grid`);
-        if (!grid) return;
-        
-        setLoadingState(grid, true);
-        
-        const articles = await fetchArticles({ 
-            category: getCategoryQuery(category),
-            pageSize: pageSize
-        });
-        
-        grid.innerHTML = '';
-        
-        if (articles.length === 0) {
-            grid.innerHTML = `<p class="info-message">No ${category} news found</p>`;
-            return;
-        }
-        
-        articles.forEach(article => {
-            const articleEl = createNewsCardElement(article);
-            grid.appendChild(articleEl);
-        });
-    } catch (error) {
-        const grid = document.querySelector(`#${category} .news-grid`);
-        if (grid) {
-            grid.innerHTML = '<p class="error-message">Failed to load news</p>';
-        }
-    } finally {
-        const grid = document.querySelector(`#${category} .news-grid`);
-        setLoadingState(grid, false);
-    }
-}
-
-// Helper function to map our categories to API queries
-function getCategoryQuery(category) {
-    const categoryMap = {
-        'ai': 'artificial intelligence',
-        'programming': 'programming OR coding',
-        'gadgets': 'gadgets OR tech devices',
-        'security': 'cybersecurity'
-    };
-    return categoryMap[category] || category;
-}
-
-// Create Article Element
-function createArticleElement(article, isFeatured = false) {
-    const articleEl = document.createElement('article');
-    articleEl.className = isFeatured ? 'featured-article' : 'news-card';
-    
-    // Format date
-    const date = new Date(article.publishedAt);
-    const formattedDate = date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    });
-    
-    // Determine category
-    const category = article.title.toLowerCase().includes('ai') ? 'AI' : 
-                     article.title.toLowerCase().includes('security') ? 'Security' :
-                     article.title.toLowerCase().includes('programming') ? 'Programming' :
-                     'Tech';
-    
-    if (isFeatured) {
-        articleEl.innerHTML = `
-            <div class="article-image" style="background-image: url('${article.urlToImage || 'https://source.unsplash.com/random/600x400/?technology'}')">
-                <span class="article-category">${category}</span>
-            </div>
-            <div class="article-content">
-                <h3 class="article-title">
-                    <a href="#" class="article-link" data-url="${article.url}">${article.title}</a>
-                </h3>
-                <p class="article-excerpt">
-                    ${article.description || 'No description available.'}
-                </p>
-                <div class="article-meta">
-                    <span><i class="far fa-calendar-alt"></i> ${formattedDate}</span>
-                    <span><i class="far fa-user"></i> ${article.author || article.source.name || 'Unknown'}</span>
-                </div>
-            </div>
-        `;
-    } else {
-        articleEl.innerHTML = `
-            <div class="news-image" style="background-image: url('${article.urlToImage || 'https://source.unsplash.com/random/600x400/?technology'}')"></div>
-            <div class="news-content">
-                <h3 class="news-title">
-                    <a href="#" class="news-link" data-url="${article.url}">${article.title}</a>
-                </h3>
-                <p class="news-excerpt">
-                    ${article.description || 'No description available.'}
-                </p>
-                <div class="news-meta">
-                    <span><i class="far fa-calendar-alt"></i> ${formattedDate}</span>
-                    <span><i class="far fa-clock"></i> ${Math.ceil((article.content?.length || 0) / 300)} min read</span>
-                </div>
-            </div>
-        `;
-    }
-    
-    return articleEl;
-}
-
-// Create News Card Element
-function createNewsCardElement(article) {
-    return createArticleElement(article, false);
-}
-
-// Set loading state
-function setLoadingState(element, isLoading) {
-    if (!element) return;
-    
-    if (isLoading) {
-        element.classList.add('loading');
-    } else {
-        element.classList.remove('loading');
-    }
-}
-
-// Search functionality
-async function handleSearch() {
-    const query = searchInput.value.trim();
-    if (!query) return;
-    
-    try {
-        const articles = await fetchArticles({ q: query, pageSize: 12 });
-        
-        // Create a modal or replace current view with search results
-        alert(`Found ${articles.length} articles for "${query}"`);
-        console.log('Search results:', articles);
-        
-        // In a real implementation, you would display these results
-    } catch (error) {
-        alert('Search failed. Please try again.');
-    }
-}
-
-// Initialize the page
-function initializePage() {
-    // Load initial data
-    fetchFeaturedArticles();
-    
-    // Load category news
-    const categories = ['latest', 'ai', 'programming', 'gadgets', 'security'];
-    categories.forEach(category => {
-        fetchCategoryNews(category);
-    });
-    
-    // Event listeners
-    searchButton.addEventListener('click', handleSearch);
-    searchInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') handleSearch();
-    });
-    
-    // Article click handler
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('article-link') || 
-            e.target.classList.contains('news-link')) {
-            e.preventDefault();
-            const articleUrl = e.target.getAttribute('data-url');
-            if (articleUrl) {
-                // Open in new tab
-                window.open(articleUrl, '_blank');
-                
-                // Alternatively, you could:
-                // 1. Fetch full article content from your backend
-                // 2. Display it in your article template
-                // 3. Use history.pushState to update URL
-            }
-        }
-    });
-    
-    // Category tab switching
-    const categoryTabs = document.querySelectorAll('.category-tab');
-    categoryTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            categoryTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            
-            const category = tab.getAttribute('data-category');
-            fetchCategoryNews(category);
-        });
-    });
-}
-
-// Start when DOM is loaded
-document.addEventListener('DOMContentLoaded', initializePage);
-
-
     </script>
 </body>
 </html>
